@@ -115,7 +115,7 @@ class LoginHubView: UIView, UITextViewDelegate {
         
         self.prepareViewsForAutoLayout(viewsDict)
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-40-[wLbl]-30-[eTF(==\(String(DVUIConstants.textFieldHeight)))]-30-[pTF(==\(String(DVUIConstants.textFieldHeight)))]-30-[logBtn(==\(String(DVUIConstants.loginBtnsHeight)))]-25-[xBtns]", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-15-[wLbl]-15-[eTF(==\(String(DVUIConstants.textFieldHeight)))]-15-[pTF(==\(String(DVUIConstants.textFieldHeight)))]-15-[logBtn(==\(String(DVUIConstants.loginBtnsHeight)))]-10-[xBtns]", views: viewsDict))
         
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[wLbl]|", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[eTF]-15-|", views: viewsDict))
