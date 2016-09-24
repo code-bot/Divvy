@@ -55,7 +55,7 @@ struct DVUIConstants {
     static let titleFontSize = CGFloat(36.0)
     static let infoFontSize = CGFloat(20.0)
     static let cameraHeight = CGFloat(40)
-    static let cameraOffset = CGFloat(5).
+    static let cameraOffset = CGFloat(5)
     
     //Transaction Page
     static let paymentPanelHeight = screenHeight * 0.20
