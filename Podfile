@@ -6,10 +6,10 @@ target 'Divvy' do
   use_frameworks!
 
   # Pods for Divvy
-  pod 'SwiftyJSON'
+  pod 'SwiftyJSON’, :git => ‘https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => ‘swift2’
   pod ‘Firebase’, ‘>= 2.5.1’
   pod 'Firebase/Auth’
   pod 'Firebase/Database'
-  pod 'Alamofire'
+  pod 'Alamofire’, ‘~>3.4.0’
   
 end

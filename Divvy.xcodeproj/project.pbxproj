@@ -21,6 +21,8 @@
 		87EE867E1D96BD5800819D63 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE867A1D96BD5800819D63 /* CheckBox.swift */; };
 		87EE867F1D96BD5800819D63 /* PhotoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE867B1D96BD5800819D63 /* PhotoSelector.swift */; };
 		B7461A401D9743BC00CF7D45 /* TotalTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */; };
+		B7461A421D97481C00CF7D45 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A411D97481C00CF7D45 /* EditProfileViewController.swift */; };
+		B7461A441D97483E00CF7D45 /* EditProfileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */; };
 		B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809D91D96963600DD4EBF /* DVUser.swift */; };
 		B7A809DC1D96965300DD4EBF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DB1D96965300DD4EBF /* Item.swift */; };
 		B7A809DE1D96966500DD4EBF /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DD1D96966500DD4EBF /* Food.swift */; };
@@ -56,6 +58,8 @@
 		87EE867A1D96BD5800819D63 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		87EE867B1D96BD5800819D63 /* PhotoSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelector.swift; sourceTree = "<group>"; };
 		B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTransactionView.swift; sourceTree = "<group>"; };
+		B7461A411D97481C00CF7D45 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileDetailsView.swift; sourceTree = "<group>"; };
 		B7A809D91D96963600DD4EBF /* DVUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVUser.swift; sourceTree = "<group>"; };
 		B7A809DB1D96965300DD4EBF /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B7A809DD1D96966500DD4EBF /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				87EE867B1D96BD5800819D63 /* PhotoSelector.swift */,
 				B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */,
 				B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */,
+				B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				87EE86741D96BD3100819D63 /* AdditionalSignUpViewController.swift */,
 				87EE866E1D96BC2D00819D63 /* HomeViewController.swift */,
 				EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */,
+				B7461A411D97481C00CF7D45 /* EditProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -394,8 +400,10 @@
 				EF3194331D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				B7A809DE1D96966500DD4EBF /* Food.swift in Sources */,
 				87EE866F1D96BC2D00819D63 /* HomeViewController.swift in Sources */,
+				B7461A441D97483E00CF7D45 /* EditProfileDetailsView.swift in Sources */,
 				EF31942D1D967FF600CC0A26 /* DVUIConstants.swift in Sources */,
 				87EE867F1D96BD5800819D63 /* PhotoSelector.swift in Sources */,
+				B7461A421D97481C00CF7D45 /* EditProfileViewController.swift in Sources */,
 				87EE86751D96BD3100819D63 /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
