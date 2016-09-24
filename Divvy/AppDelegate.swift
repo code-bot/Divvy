@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let licenseCode = "015B4210-1C16-4485-868B-D8EFFE7D1A61"
+    let username = "sahajbot"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let ocrURL = "http://www.ocrwebservice.com/restservices/processDocument?gettext=true"
+        let data = (username + ":" + licenseCode).dataUsingEncoding(NSUTF8StringEncoding)
+        let headers = [
+            "Authorization": "Basic " + data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
+            "Content-Type": "application/json"
+        ]
+        let image = UIImage(named: "publix")
+        let imageData = UIImagePNGRepresentation(image!)
+        Alamofire.upload(.POST, ocrURL, headers: headers, data: imageData!).responseJSON { response in
+            debugPrint(response)
+            
+            if let json = response.result.value {
+                print("JSON: \(json)")
+            }
+        }
+        
+        
         return true
     }
 
