@@ -16,8 +16,14 @@ struct DVUIConstants {
     static let screenSize           = UIScreen.mainScreen().bounds.size
     static let screenWidth          = screenSize.width
     static let screenHeight         = screenSize.height
-    static let screenNavBarHeight = screenHeight * 0.15
-    static let screenNavBarWidth = screenWidth
+    
+    //NavBar
+    static let navBarHeight = CGFloat(40)
+    static let navBarWidth = screenWidth
+    static let navBarCenterWidthOffset = screenWidth/2 - loginHubWidth/2
+    static let navBarCenterHeightOffset = logoImgViewHeight + logoHeightOffset + screenWidth/9
+    static let signOutHeight = CGFloat(40)
+    static let signOutOffset = CGFloat(5)
     
     //Title/Login Page
     static let loginHubWidth = (7 * screenWidth)/8
@@ -48,7 +54,6 @@ struct DVUIConstants {
     static let homeCenterWidthOffset = screenWidth/2 - loginHubWidth/2
     static let homeHeight = CGFloat(350)
     static let homeCenterHeightOffset = logoImgViewHeight + logoHeightOffset + screenWidth/9
-    static let navBarHeight = CGFloat(40)
     static let tabBtnHeight = CGFloat(40)
     static let signOut = UIImage(named: "SignOut")
     static let signOutWidth = 20

@@ -67,7 +67,7 @@ class LoginHubView: UIView, UITextViewDelegate {
     }
     
     func configureLabels() {
-        welcomeLabel.text = "SPLIT WITH EASE"
+        welcomeLabel.text = "FIND YOUR BALANCE"
         welcomeLabel.textColor = DVUIConstants.colors.loginPeach
         welcomeLabel.textAlignment = .Center
         

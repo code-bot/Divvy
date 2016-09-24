@@ -15,7 +15,7 @@ UINavigationControllerDelegate {
     
     //views
     var homePageView = HomePageView(frame: CGRect(x: DVUIConstants.homeCenterWidthOffset, y: DVUIConstants.homeCenterHeightOffset, width: DVUIConstants.homeWidth, height: DVUIConstants.homeHeight))
-    
+    var navBarView = NavBarView(frame: CGRect.zero)
     
     func openCameraButton(sender: AnyObject!) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -59,13 +59,18 @@ UINavigationControllerDelegate {
         self.view.layer.insertSublayer(gradient, atIndex: 0)
 
         
-//        let viewsDict = [
-//            "logo"      :   titleLogoView
-//        ]
-//        
-//        self.view.prepareViewsForAutoLayout(viewsDict)
-    
-        self.view.addSubview(homePageView)
+        let viewsDict = [
+            "navBar"    : navBarView,
+            "home"      : homePageView
+        ]
+        
+        self.view.prepareViewsForAutoLayout(viewsDict)
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-20-[navBar][home]", views: viewsDict))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[navBar]|", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[home]|", views: viewsDict))
+        
 
     }
     

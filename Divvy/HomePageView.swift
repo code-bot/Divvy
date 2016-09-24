@@ -21,14 +21,7 @@ class HomePageView: UIView, UITextViewDelegate {
         camera.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
     
-    func configureLogo() {
-        
-    }
-    
-    func configureViews() {
 
-
-    }
     func configureView() {
         self.backgroundColor = UIColor.clearColor()
         
