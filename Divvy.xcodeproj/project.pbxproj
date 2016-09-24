@@ -20,6 +20,7 @@
 		87EE867D1D96BD5800819D63 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86791D96BD5800819D63 /* SignUpTextField.swift */; };
 		87EE867E1D96BD5800819D63 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE867A1D96BD5800819D63 /* CheckBox.swift */; };
 		87EE867F1D96BD5800819D63 /* PhotoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE867B1D96BD5800819D63 /* PhotoSelector.swift */; };
+		B7461A401D9743BC00CF7D45 /* TotalTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */; };
 		B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809D91D96963600DD4EBF /* DVUser.swift */; };
 		B7A809DC1D96965300DD4EBF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DB1D96965300DD4EBF /* Item.swift */; };
 		B7A809DE1D96966500DD4EBF /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DD1D96966500DD4EBF /* Food.swift */; };
@@ -33,7 +34,6 @@
 		EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */; };
 		EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */; };
 		EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */; };
-		EF31943B1D96E66400CC0A26 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31943A1D96E66400CC0A26 /* TransactionView.swift */; };
 		EF31943D1D96E81C00CC0A26 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +55,7 @@
 		87EE86791D96BD5800819D63 /* SignUpTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		87EE867A1D96BD5800819D63 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		87EE867B1D96BD5800819D63 /* PhotoSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelector.swift; sourceTree = "<group>"; };
+		B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTransactionView.swift; sourceTree = "<group>"; };
 		B7A809D91D96963600DD4EBF /* DVUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVUser.swift; sourceTree = "<group>"; };
 		B7A809DB1D96965300DD4EBF /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B7A809DD1D96966500DD4EBF /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		EF31943A1D96E66400CC0A26 /* TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,7 +169,7 @@
 				87EE867A1D96BD5800819D63 /* CheckBox.swift */,
 				87EE867B1D96BD5800819D63 /* PhotoSelector.swift */,
 				B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */,
-				EF31943A1D96E66400CC0A26 /* TransactionView.swift */,
+				B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 873369B91D9648A700E61E21 /* Build configuration list for PBXNativeTarget "Divvy" */;
 			buildPhases = (
-				08EDA65D2D40DEA562A57C8C /* 📦 Check Pods Manifest.lock */,
+				08EDA65D2D40DEA562A57C8C /* [CP] Check Pods Manifest.lock */,
 				AE23415F5B092D31AE92CD05 /* [CP] Check Pods Manifest.lock */,
 				44526ABE87A4F171F5E9DF95 /* [CP] Check Pods Manifest.lock */,
 				873369A31D9648A700E61E21 /* Sources */,
@@ -261,19 +261,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08EDA65D2D40DEA562A57C8C /* 📦 Check Pods Manifest.lock */ = {
+		08EDA65D2D40DEA562A57C8C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		44526ABE87A4F171F5E9DF95 /* [CP] Check Pods Manifest.lock */ = {
@@ -375,10 +375,10 @@
 			files = (
 				87EE867C1D96BD5800819D63 /* LoginHubView.swift in Sources */,
 				B7A809E01D96967500DD4EBF /* NonFood.swift in Sources */,
+				B7461A401D9743BC00CF7D45 /* TotalTransactionView.swift in Sources */,
 				B7A809E81D96AAAE00DD4EBF /* HomePageView.swift in Sources */,
 				87EE86771D96BD3100819D63 /* AdditionalSignUpViewController.swift in Sources */,
 				87EE867E1D96BD5800819D63 /* CheckBox.swift in Sources */,
-				EF31943B1D96E66400CC0A26 /* TransactionView.swift in Sources */,
 				B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */,
 				B7A809DC1D96965300DD4EBF /* Item.swift in Sources */,
 				B7A809E21D96968D00DD4EBF /* Group.swift in Sources */,
