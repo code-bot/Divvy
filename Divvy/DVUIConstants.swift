@@ -42,12 +42,18 @@ struct DVUIConstants {
     static let photoSelOffset = screenWidth/2 - photoSize/2
     
     //Home page
+    static let homeWidth = (7 * screenWidth)/8
+    static let homeCenterWidthOffset = screenWidth/2 - loginHubWidth/2
+    static let homeHeight = CGFloat(350)
+    static let homeCenterHeightOffset = logoImgViewHeight + logoHeightOffset + screenWidth/9
     static let navBarHeight = CGFloat(40)
     static let tabBtnHeight = CGFloat(40)
     static let signOut = UIImage(named: "SignOut")
     static let signOutWidth = 20
     static let titleFontSize = CGFloat(36.0)
     static let infoFontSize = CGFloat(20.0)
+    static let cameraHeight = CGFloat(40)
+    static let cameraOffset = CGFloat(5)
     
     
     struct colors {

@@ -22,7 +22,6 @@ class LoginHubView: UIView, UITextViewDelegate {
     
     //Labels
     var welcomeLabel = UILabel()
-    var orLabel = UILabel()
     
     //Views
     var extraBtns = UIView()
@@ -72,9 +71,6 @@ class LoginHubView: UIView, UITextViewDelegate {
         welcomeLabel.textColor = DVUIConstants.colors.loginPeach
         welcomeLabel.textAlignment = .Center
         
-        orLabel.text = "-OR-"
-        orLabel.textColor = DVUIConstants.colors.loginPeach
-        orLabel.textAlignment = .Center
     }
     
     func configureViews() {
@@ -114,19 +110,17 @@ class LoginHubView: UIView, UITextViewDelegate {
             "pTF"   :   passTF,
             "logBtn":   loginBtn,
             "wLbl"  :   welcomeLabel,
-            "oLbl"  :   orLabel,
             "xBtns" :   extraBtns
         ]
         
         self.prepareViewsForAutoLayout(viewsDict)
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-10-[wLbl]-20-[eTF(==\(String(DVUIConstants.textFieldHeight)))]-20-[pTF(==\(String(DVUIConstants.textFieldHeight)))]-20-[logBtn(==\(String(DVUIConstants.loginBtnsHeight)))]-15-[xBtns]-20-[oLbl]", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-40-[wLbl]-30-[eTF(==\(String(DVUIConstants.textFieldHeight)))]-30-[pTF(==\(String(DVUIConstants.textFieldHeight)))]-30-[logBtn(==\(String(DVUIConstants.loginBtnsHeight)))]-25-[xBtns]", views: viewsDict))
         
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[wLbl]|", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[eTF]-15-|", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[pTF]-15-|", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[logBtn]-15-|", views: viewsDict))
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[oLbl]-15-|", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[xBtns]-15-|", views: viewsDict))
         
     }
