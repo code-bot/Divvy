@@ -10,7 +10,6 @@
 		873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873369AA1D9648A700E61E21 /* AppDelegate.swift */; };
 		873369B21D9648A700E61E21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873369B11D9648A700E61E21 /* Assets.xcassets */; };
 		873369B51D9648A700E61E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873369B31D9648A700E61E21 /* LaunchScreen.storyboard */; };
-		87A73F431D966E97001622D3 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A73F421D966E97001622D3 /* TesseractOCR.framework */; };
 		D47C1FD795DBBF49CA26B201 /* Pods_Divvy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B39D8E1D5D3AA3EB87AA65 /* Pods_Divvy.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +22,6 @@
 		873369B11D9648A700E61E21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		873369B41D9648A700E61E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873369B61D9648A700E61E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87A73F421D966E97001622D3 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = "Tesseract Resources/TesseractOCR.framework"; sourceTree = "<group>"; };
-		87A73F441D966F32001622D3 /* Divvy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Divvy-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +29,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A73F431D966E97001622D3 /* TesseractOCR.framework in Frameworks */,
 				D47C1FD795DBBF49CA26B201 /* Pods_Divvy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,7 +39,6 @@
 		4D6CAAABF1ABE13072516CC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				87A73F421D966E97001622D3 /* TesseractOCR.framework */,
 				74B39D8E1D5D3AA3EB87AA65 /* Pods_Divvy.framework */,
 			);
 			name = Frameworks;
@@ -70,11 +65,14 @@
 		873369A91D9648A700E61E21 /* Divvy */ = {
 			isa = PBXGroup;
 			children = (
+				B7A809C31D967CCE00DD4EBF /* Constants+Extensions */,
+				B7A809C41D967CDD00DD4EBF /* Model */,
+				B7A809C51D967CE300DD4EBF /* View */,
+				B7A809C61D967CE600DD4EBF /* Controller */,
 				873369AA1D9648A700E61E21 /* AppDelegate.swift */,
 				873369B11D9648A700E61E21 /* Assets.xcassets */,
 				873369B31D9648A700E61E21 /* LaunchScreen.storyboard */,
 				873369B61D9648A700E61E21 /* Info.plist */,
-				87A73F441D966F32001622D3 /* Divvy-Bridging-Header.h */,
 			);
 			path = Divvy;
 			sourceTree = "<group>";
@@ -86,6 +84,34 @@
 				69273064E53293E6B246795E /* Pods-Divvy.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B7A809C31D967CCE00DD4EBF /* Constants+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Constants+Extensions";
+			sourceTree = "<group>";
+		};
+		B7A809C41D967CDD00DD4EBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B7A809C51D967CE300DD4EBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B7A809C61D967CE600DD4EBF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +152,7 @@
 				TargetAttributes = {
 					873369A61D9648A700E61E21 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = U9X42PLV7V;
+						DevelopmentTeam = V7KT6Y9CM6;
 					};
 				};
 			};
@@ -367,17 +393,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tesseract",
 					Resources,
+					"$(PROJECT_DIR)/Tesseract",
+					Resources,
 				);
 				INFOPLIST_FILE = Divvy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Divvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -387,16 +420,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tesseract",
 					Resources,
+					"$(PROJECT_DIR)/Tesseract",
+					Resources,
 				);
 				INFOPLIST_FILE = Divvy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Divvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
