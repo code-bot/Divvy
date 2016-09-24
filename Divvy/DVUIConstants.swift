@@ -16,6 +16,8 @@ struct DVUIConstants {
     static let screenSize           = UIScreen.mainScreen().bounds.size
     static let screenWidth          = screenSize.width
     static let screenHeight         = screenSize.height
+    static let screenNavBarHeight = screenHeight * 0.15
+    static let screenNavBarWidth = screenWidth
     
     //Title/Login Page
     static let loginHubWidth = (7 * screenWidth)/8
@@ -53,8 +55,11 @@ struct DVUIConstants {
     static let titleFontSize = CGFloat(36.0)
     static let infoFontSize = CGFloat(20.0)
     static let cameraHeight = CGFloat(40)
-    static let cameraOffset = CGFloat(5)
+    static let cameraOffset = CGFloat(5).
     
+    //Transaction Page
+    static let paymentPanelHeight = screenHeight * 0.20
+    static let paymentPanelWidth = screenWidth
     
     struct colors {
         // example colors
