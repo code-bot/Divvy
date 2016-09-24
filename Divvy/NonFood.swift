@@ -12,7 +12,7 @@ import Darwin
 class NonFood: Item {
     var personal: Bool!
     
-    init(personal: Bool) {
+    init(itemName: String, price: Double, personal: Bool) {
         super.init(itemName: itemName, price: price)
         self.personal = personal
     }

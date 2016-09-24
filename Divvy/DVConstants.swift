@@ -7,11 +7,13 @@
 //
 
 import UIKit
-import Parse
 
 struct CDUIConstants {
     static let viewFactor           = UIScreen.mainScreen().bounds.size.width / 375
     static let animationDuration    = 0.25
+    static let screenSize           = UIScreen.mainScreen().bounds.size
+    static let screenWidth          = screenSize.width
+    static let screenHeight         = screenSize.height
     
     struct colors {
         // example colors
@@ -23,16 +25,4 @@ struct CDUIConstants {
     struct fonts {
         
     }
-}
-
-struct CDParseConstants {
-    static let retrieveLimit = 25
-    static let PARSE_APP_ID = "TODO"
-    static let PARSE_CLIENT_KEY = "TODO"
-}
-
-struct CDAuthenticationConstants {
-    static var username: String? = nil
-    static var password: String? = nil
-    static var user: PFUser? = nil
 }

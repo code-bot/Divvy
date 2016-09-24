@@ -10,8 +10,8 @@ import Foundation
 import Darwin
 
 class Item {
-    var itemName = String
-    var price = Double
+    var itemName : String
+    var price : Double
     
     init (itemName: String, price: Double) {
         self.itemName = itemName

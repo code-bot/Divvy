@@ -9,15 +9,15 @@
 import Foundation
 
 class Group {
-    var users = [DVUser]
-    var groupPref = [Item]
+    var users : [DVUser]
+    var groupPref : [Item]
     
     init(users: [DVUser]) {
         self.users = users
-        groupPref = []
+        groupPref = [Item]()
     }
     
     func addToGroupPref(item: Item) {
-        groupPref.append(item: Item)
+        groupPref.append(item)
     }
 }

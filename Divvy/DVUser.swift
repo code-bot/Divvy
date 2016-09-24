@@ -9,19 +9,15 @@
 import Foundation
 import Darwin
 
-class DVUser: NSObject {
-    var email = String!
-    var pass = String!
-    var fName = String!
-    var lName = String!
-    var vegPref = Bool!
-    var foodPref = [Item]
+class DVUser {
+    var email : String!
+    var pass : String!
+    var fName : String!
+    var lName : String!
+    var vegPref : Bool!
+    var foodPref = [Item]()
     
-    override init() {
-    }
-    
-    init(email: String, pass: String, fName: String, lname: String, vegPref: bool) {
-        super.init()
+    init(email: String, pass: String, fName: String, lName: String, vegPref: Bool) {
         self.email = email
         self.pass = pass
         self.fName = fName
@@ -31,6 +27,6 @@ class DVUser: NSObject {
     }
     
     func addToFoodPref(item: Item) {
-        foodPref.append(item: Item)
+        foodPref.append(item)
     }
 }
