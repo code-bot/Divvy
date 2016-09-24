@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+//import Alamofire
 import Firebase
 import SwiftyJSON
 
@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        Lakeland, FL 33802-0407
         //
         //        11/17/9nnR 17 Fl q141 R105 3759 CO27"
+
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = TitleViewController()
