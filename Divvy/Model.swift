@@ -16,9 +16,13 @@ class Model {
     var currUser : DVUser?
     var firCurrUser : FIRUser?
     var dbRef : FIRDatabaseReference!
+    var items : [Item]
+    let licenseCode = "015B4210-1C16-4485-868B-D8EFFE7D1A61"
+    let username = "sahajbot"
     
     init() {
         dbRef = FIRDatabase.database().reference()
+        items = [Item]()
         //default data
     }
     
