@@ -12,17 +12,19 @@ import UIKit
 
 class NavBarView: UIView, UITextViewDelegate {
     
+    
+
     //Buttons
     var signOut = UIButton()
     var editProfile = UIButton()
     
     func configureButtons() {
         signOut.setTitle("Sign Out", forState: .Normal)
-        signOut.backgroundColor = DVUIConstants.colors.loginPeach
+        signOut.backgroundColor = UIColor.clearColor()
         signOut.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
         editProfile.setTitle("Edit Profile", forState: .Normal)
-        editProfile.backgroundColor = DVUIConstants.colors.loginPeach
+        editProfile.backgroundColor = UIColor.clearColor()
         editProfile.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
     
@@ -35,7 +37,7 @@ class NavBarView: UIView, UITextViewDelegate {
         
     }
     func configureView() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = DVUIConstants.colors.loginPeach
         
         configureButtons()
         
