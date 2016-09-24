@@ -6,7 +6,9 @@ target 'Divvy' do
   use_frameworks!
 
   # Pods for Divvy
-  pod 'Firebase'
-  pod 'Firebase/Database'
   pod 'SwiftyJSON'
+  pod ‘Firebase’, ‘>= 2.5.1’
+  pod 'Firebase/Auth’
+  pod 'Firebase/Database'
+  
 end
