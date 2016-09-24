@@ -38,6 +38,10 @@ UINavigationControllerDelegate {
         }
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     func getItemInfo(lines: [String], lineIndex: Int, charIndex: Int) -> (String, Double) {
         var foundPrice = false
         var notItemName = false
