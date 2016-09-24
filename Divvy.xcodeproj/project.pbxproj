@@ -10,6 +10,7 @@
 		873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873369AA1D9648A700E61E21 /* AppDelegate.swift */; };
 		873369B21D9648A700E61E21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873369B11D9648A700E61E21 /* Assets.xcassets */; };
 		873369B51D9648A700E61E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873369B31D9648A700E61E21 /* LaunchScreen.storyboard */; };
+		87B19C751D97218000F42CF9 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B19C741D97218000F42CF9 /* NavBarView.swift */; };
 		87EE866F1D96BC2D00819D63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE866E1D96BC2D00819D63 /* HomeViewController.swift */; };
 		87EE86711D96BC6200819D63 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86701D96BC6200819D63 /* Model.swift */; };
 		87EE86751D96BD3100819D63 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86721D96BD3100819D63 /* TitleViewController.swift */; };
@@ -44,6 +45,7 @@
 		873369B11D9648A700E61E21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		873369B41D9648A700E61E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873369B61D9648A700E61E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87B19C741D97218000F42CF9 /* NavBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
 		87EE866E1D96BC2D00819D63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		87EE86701D96BC6200819D63 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		87EE86721D96BD3100819D63 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		B7A809C51D967CE300DD4EBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87B19C741D97218000F42CF9 /* NavBarView.swift */,
 				87EE86781D96BD5800819D63 /* LoginHubView.swift */,
 				87EE86791D96BD5800819D63 /* SignUpTextField.swift */,
 				87EE867A1D96BD5800819D63 /* CheckBox.swift */,
@@ -222,9 +225,7 @@
 				TargetAttributes = {
 					873369A61D9648A700E61E21 = {
 						CreatedOnToolsVersion = 7.3.1;
-
 						DevelopmentTeam = U9X42PLV7V;
-
 					};
 				};
 			};
@@ -388,6 +389,7 @@
 				87EE86711D96BC6200819D63 /* Model.swift in Sources */,
 				87EE867D1D96BD5800819D63 /* SignUpTextField.swift in Sources */,
 				873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */,
+				87B19C751D97218000F42CF9 /* NavBarView.swift in Sources */,
 				EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */,
 				EF3194331D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				B7A809DE1D96966500DD4EBF /* Food.swift in Sources */,
@@ -515,8 +517,7 @@
 				INFOPLIST_FILE = Divvy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivvit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
@@ -543,8 +544,7 @@
 				INFOPLIST_FILE = Divvy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivvit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
