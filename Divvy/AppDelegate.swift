@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Firebase
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,21 +24,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
-//        let ocrURL = "http://www.ocrwebservice.com/restservices/processDocument?gettext=true"
-//        let data = (username + ":" + licenseCode).dataUsingEncoding(NSUTF8StringEncoding)
-//        let headers = [
-//            "Authorization": "Basic " + data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
-//            "Content-Type": "application/json"
-//        ]
-//        let image = UIImage(named: "publix")
-//        let imageData = UIImagePNGRepresentation(image!)
-//        Alamofire.upload(.POST, ocrURL, headers: headers, data: imageData!).responseJSON { response in
-//            debugPrint(response)
-//            
-//            if let json = response.result.value {
-//                print("JSON: \(json)")
-//            }
-//        }
+        let ocrURL = "http://www.ocrwebservice.com/restservices/processDocument?gettext=true&tobw=true&outputformat=txt"
+        let data = (username + ":" + licenseCode).dataUsingEncoding(NSUTF8StringEncoding)
+        let headers = [
+            "Authorization": "Basic " + data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
+            "Content-Type": "application/json"
+        ]
+        let image = UIImage(named: "publix")
+        let imageData = UIImagePNGRepresentation(image!)
+        Alamofire.upload(.POST, ocrURL, headers: headers, data: imageData!).responseJSON { response in
+            debugPrint(response)
+            
+            if let json = response.result.value {
+                print("JSON: \(json)")
+                let data = JSON(json)
+                let url = data["OutputFileUrl"].URL
+                do {
+                    let htmlString = try String(contentsOfURL: url!)
+                    print(htmlString)
+                    let items = []
+                    var lines = [String]()
+                    htmlString.enumerateLines {
+                        lines.append($0.line)
+                    }
+                    var blanksReached = false
+                    var index = 1
+                    while index < lines.count && !blanksReached {
+                        if lines[index - 1] == "" && lines[index] == "" {
+                            blanksReached = true
+                        } else if lines[index] != "" {
+                            index += 2
+                        } else {
+                            index += 1
+                        }
+                    }
+                    
+                    var maxLineLength = lines[index + 1].characters.count
+                    var maxLineIndex = index + 1
+                    for i in 2..<4 {
+                        let length = lines[index + i].characters.count
+                        if length < maxLineLength {
+                            maxLineLength = length
+                            maxLineIndex = index + i
+                        }
+                    }
+                    
+                    var lineIndex = 0
+                    var foundNum = false
+                    let maxLine = lines[maxLineIndex]
+                    while lineIndex >= -maxLineLength + 1 && !foundNum {
+                        if maxLine[maxLine.endIndex.advancedBy(lineIndex)] == "." {
+                            foundNum = true
+                        } else {
+                            lineIndex -= 1
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
+                } catch let error {
+                    print(error)
+                }
+            }
+        }
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = TitleViewController()
