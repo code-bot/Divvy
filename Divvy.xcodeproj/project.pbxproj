@@ -16,6 +16,7 @@
 		B7A809E01D96967500DD4EBF /* NonFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DF1D96967500DD4EBF /* NonFood.swift */; };
 		B7A809E21D96968D00DD4EBF /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809E11D96968D00DD4EBF /* Group.swift */; };
 		B7A809E41D96971000DD4EBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A809E31D96971000DD4EBF /* GoogleService-Info.plist */; };
+		B7A809E61D96A6F700DD4EBF /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809E51D96A6F700DD4EBF /* LoginPageView.swift */; };
 		D47C1FD795DBBF49CA26B201 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		EF31942A1D967F8700CC0A26 /* DVLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194291D967F8700CC0A26 /* DVLogger.swift */; };
 		EF31942D1D967FF600CC0A26 /* DVConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31942C1D967FF600CC0A26 /* DVConstants.swift */; };
@@ -39,6 +40,7 @@
 		B7A809DF1D96967500DD4EBF /* NonFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonFood.swift; sourceTree = "<group>"; };
 		B7A809E11D96968D00DD4EBF /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		B7A809E31D96971000DD4EBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7A809E51D96A6F700DD4EBF /* LoginPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		EF3194291D967F8700CC0A26 /* DVLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVLogger.swift; sourceTree = "<group>"; };
 		EF31942C1D967FF600CC0A26 /* DVConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVConstants.swift; sourceTree = "<group>"; };
 		EF3194321D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DVLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		B7A809C51D967CE300DD4EBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B7A809E51D96A6F700DD4EBF /* LoginPageView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */,
 				B7A809DC1D96965300DD4EBF /* Item.swift in Sources */,
 				B7A809E21D96968D00DD4EBF /* Group.swift in Sources */,
+				B7A809E61D96A6F700DD4EBF /* LoginPageView.swift in Sources */,
 				EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */,
 				EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */,
 				873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */,
