@@ -32,6 +32,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         let image = UIImage(named: "publix")
         let imageData = UIImagePNGRepresentation(image!)
+        
+        
+//        let str = "   Publix.\nSt. James Center Publix 569-7920\nStore Manager:\n\n\nLYSOL PACIFIC FRES\n1    2 FOR   2.69        1.35 T\nAd Spec Savings 1.34\nMOTT APLE SCE ORG\n1 4  2 FOR    2.73       1.37 t F\nAd Spec Savings 1.36\nMOTT APLE SCE ORG\n1    2 FOR    2.73       1.36 t F\nAd Spec Savings 1.36\nLINDSAY PITT OLIVE\n1    2 FOR    1.75       0.88 t F\nAd Spec Savings 1.11\nLINDSAY PITT OLIVE\n1 @  2 FOR    1.75       0.87 t F\nAd Spec Savings 1.11\nKRFT SPDRMAN MC/CH       0.50 t F\nAd Spec Savings 0.49\nKRFT SPDRMAN MC/CH       0.50 t F\nAd Spec Savings 0.49\nKRFT SPDRMAN MC/CH       0.50 t F\nAd Spec Savings 0.49\nKRFT SPDRMAN MC/CH       0.50 t F\nAd Spec Savings 0.49\nVendor Coupon            -0.50\nFMultiplied Cpn          -0.50 t F\n\nOrder Total             6.83\nSales Tax             0,09"
+//        print(str)
+        
+
+//        Food Tax              0.06
+//        Grand Total             6.98
+//        Debit         Payment      6.98
+//        
+//        PRESTO!
+//        Reference #: 066608-003
+//        Trace #:
+//        Acct #:
+//        Debit ,
+//        Amount: $6.98
+//        
+//        Change                     0.00
+//        
+//        Your Total Savings
+//        Vendor Coupon              0.50
+//        Store Coupon               0.50
+//        Advertised Special Savings 8.24
+//        Your Savings at Publix      9.24
+//        
+//        
+//        Your cashier was
+//        
+//        P.O. Box 407 
+//        Lakeland, FL 33802-0407
+//        
+//        11/17/9nnR 17 Fl q141 R105 3759 CO27"
+        
+        
         Alamofire.upload(.POST, ocrURL, headers: headers, data: imageData!).responseJSON { response in
             debugPrint(response)
             
@@ -42,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 do {
                     let htmlString = try String(contentsOfURL: url!)
                     print(htmlString)
-                    let items = []
+                    var items = [(String, Double)]()
                     var lines = [String]()
                     htmlString.enumerateLines {
                         lines.append($0.line)
@@ -59,20 +93,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                     
+                    //print(lines[index+1])
+                    
                     var maxLineLength = lines[index + 1].characters.count
                     var maxLineIndex = index + 1
                     for i in 2..<4 {
                         let length = lines[index + i].characters.count
-                        if length < maxLineLength {
+                        if length > maxLineLength {
                             maxLineLength = length
                             maxLineIndex = index + i
                         }
                     }
                     
-                    var lineIndex = 0
+                    var lineIndex = -1
                     var foundNum = false
                     let maxLine = lines[maxLineIndex]
+//                    print("maxLine")
+//                    print(maxLine)
                     while lineIndex >= -maxLineLength + 1 && !foundNum {
+                        //print(maxLine[maxLine.endIndex.advancedBy(lineIndex)])
                         if maxLine[maxLine.endIndex.advancedBy(lineIndex)] == "." {
                             foundNum = true
                         } else {
@@ -80,6 +119,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                     
+                    //print(maxLine[maxLine.endIndex.advancedBy(lineIndex)])
+                    
+                    //print(self.getItemInfo(lines, lineIndex: maxLineIndex, charIndex: lineIndex - 1))
+                    
+                    var charIndex = lines[maxLineIndex].characters.count + lineIndex - 1
+                    var i = maxLineIndex
+                    var moreItems = true
+                    while moreItems && i < lines.count {
+                        let line = lines[i]
+                        if line == "" {
+                            moreItems = false
+                        } else if line.characters.count > charIndex {
+                            items.append(self.getItemInfo(lines, lineIndex: i, charIndex: charIndex))
+                        }
+                        i += 1
+                    }
+                    print(items)
+
                     
                     
                     
@@ -95,6 +152,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func getItemInfo(lines: [String], lineIndex: Int, charIndex: Int) -> (String, Double) {
+        var foundPrice = false
+        var notItemName = false
+        var price = ""
+        var itemName = ""
+        let line = lines[lineIndex]
+        var i = 0
+        while i <= charIndex && !(foundPrice && notItemName) {
+            let currChar = line[line.startIndex.advancedBy(charIndex - i)]
+            //print(currChar)
+            if !foundPrice && currChar == " " {
+                foundPrice = true
+            } else if !foundPrice {
+                price = String(currChar) + price
+            }
+            if currChar == "." {
+                notItemName = true
+            } else if foundPrice {
+                itemName = String(currChar) + itemName
+            }
+            i += 1
+        }
+        if notItemName {
+            itemName = lines[lineIndex-1]
+        }
+        
+        price += String(line[line.startIndex.advancedBy(charIndex + 1)]) + String(line[line.startIndex.advancedBy(charIndex + 2)]) + String(line[line.startIndex.advancedBy(charIndex + 3)])
+        
+        print(itemName)
+        print(price)
+        
+        return (itemName.stringByTrimmingCharactersInSet(
+            NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            ), Double(price)!)
     }
 
     func applicationWillResignActive(application: UIApplication) {
