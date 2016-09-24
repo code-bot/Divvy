@@ -10,6 +10,7 @@
 		873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873369AA1D9648A700E61E21 /* AppDelegate.swift */; };
 		873369B21D9648A700E61E21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873369B11D9648A700E61E21 /* Assets.xcassets */; };
 		873369B51D9648A700E61E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873369B31D9648A700E61E21 /* LaunchScreen.storyboard */; };
+		87A73F431D966E97001622D3 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A73F421D966E97001622D3 /* TesseractOCR.framework */; };
 		D47C1FD795DBBF49CA26B201 /* Pods_Divvy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B39D8E1D5D3AA3EB87AA65 /* Pods_Divvy.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,8 @@
 		873369B11D9648A700E61E21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		873369B41D9648A700E61E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873369B61D9648A700E61E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87A73F421D966E97001622D3 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = "Tesseract Resources/TesseractOCR.framework"; sourceTree = "<group>"; };
+		87A73F441D966F32001622D3 /* Divvy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Divvy-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A73F431D966E97001622D3 /* TesseractOCR.framework in Frameworks */,
 				D47C1FD795DBBF49CA26B201 /* Pods_Divvy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,6 +43,7 @@
 		4D6CAAABF1ABE13072516CC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87A73F421D966E97001622D3 /* TesseractOCR.framework */,
 				74B39D8E1D5D3AA3EB87AA65 /* Pods_Divvy.framework */,
 			);
 			name = Frameworks;
@@ -69,6 +74,7 @@
 				873369B11D9648A700E61E21 /* Assets.xcassets */,
 				873369B31D9648A700E61E21 /* LaunchScreen.storyboard */,
 				873369B61D9648A700E61E21 /* Info.plist */,
+				87A73F441D966F32001622D3 /* Divvy-Bridging-Header.h */,
 			);
 			path = Divvy;
 			sourceTree = "<group>";
@@ -89,12 +95,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 873369B91D9648A700E61E21 /* Build configuration list for PBXNativeTarget "Divvy" */;
 			buildPhases = (
+				AE23415F5B092D31AE92CD05 /* 📦 Check Pods Manifest.lock */,
 				44526ABE87A4F171F5E9DF95 /* [CP] Check Pods Manifest.lock */,
 				873369A31D9648A700E61E21 /* Sources */,
 				873369A41D9648A700E61E21 /* Frameworks */,
 				873369A51D9648A700E61E21 /* Resources */,
 				7D22FB0D99B112E7FB15E774 /* [CP] Embed Pods Frameworks */,
 				B8F485DD6AC6C2901595996E /* [CP] Copy Pods Resources */,
+				77E0ADBABDAB0AD9ADF59146 /* 📦 Embed Pods Frameworks */,
+				84C85D0E016790C03FD89796 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +176,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		77E0ADBABDAB0AD9ADF59146 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Divvy/Pods-Divvy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7D22FB0D99B112E7FB15E774 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,6 +204,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Divvy/Pods-Divvy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84C85D0E016790C03FD89796 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Divvy/Pods-Divvy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE23415F5B092D31AE92CD05 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B8F485DD6AC6C2901595996E /* [CP] Copy Pods Resources */ = {
@@ -312,10 +366,18 @@
 			baseConfigurationReference = 2759908FEC944CBB3202A4F3 /* Pods-Divvy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tesseract",
+					Resources,
+				);
 				INFOPLIST_FILE = Divvy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Divvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -324,10 +386,17 @@
 			baseConfigurationReference = 69273064E53293E6B246795E /* Pods-Divvy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tesseract",
+					Resources,
+				);
 				INFOPLIST_FILE = Divvy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Divvy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
 			};
 			name = Release;
 		};
