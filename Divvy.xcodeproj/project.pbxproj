@@ -222,7 +222,9 @@
 				TargetAttributes = {
 					873369A61D9648A700E61E21 = {
 						CreatedOnToolsVersion = 7.3.1;
+
 						DevelopmentTeam = U9X42PLV7V;
+
 					};
 				};
 			};
@@ -513,7 +515,8 @@
 				INFOPLIST_FILE = Divvy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivvit;
+
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
@@ -540,7 +543,8 @@
 				INFOPLIST_FILE = Divvy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivvit;
+
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.Pivit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Divvy/Divvy-Bridging-Header.h";
