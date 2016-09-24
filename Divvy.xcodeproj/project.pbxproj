@@ -32,6 +32,8 @@
 		EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */; };
 		EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */; };
 		EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */; };
+		EF31943B1D96E66400CC0A26 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31943A1D96E66400CC0A26 /* TransactionView.swift */; };
+		EF31943D1D96E81C00CC0A26 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		EF31943A1D96E66400CC0A26 /* TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 				87EE867A1D96BD5800819D63 /* CheckBox.swift */,
 				87EE867B1D96BD5800819D63 /* PhotoSelector.swift */,
 				B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */,
+				EF31943A1D96E66400CC0A26 /* TransactionView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				87EE86731D96BD3100819D63 /* EmailSignUpViewController.swift */,
 				87EE86741D96BD3100819D63 /* AdditionalSignUpViewController.swift */,
 				87EE866E1D96BC2D00819D63 /* HomeViewController.swift */,
+				EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -353,11 +359,13 @@
 				B7A809E81D96AAAE00DD4EBF /* HomePageView.swift in Sources */,
 				87EE86771D96BD3100819D63 /* AdditionalSignUpViewController.swift in Sources */,
 				87EE867E1D96BD5800819D63 /* CheckBox.swift in Sources */,
+				EF31943B1D96E66400CC0A26 /* TransactionView.swift in Sources */,
 				B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */,
 				B7A809DC1D96965300DD4EBF /* Item.swift in Sources */,
 				B7A809E21D96968D00DD4EBF /* Group.swift in Sources */,
 				EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */,
 				EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */,
+				EF31943D1D96E81C00CC0A26 /* TransactionViewController.swift in Sources */,
 				87EE86761D96BD3100819D63 /* EmailSignUpViewController.swift in Sources */,
 				87EE86711D96BC6200819D63 /* Model.swift in Sources */,
 				87EE867D1D96BD5800819D63 /* SignUpTextField.swift in Sources */,
