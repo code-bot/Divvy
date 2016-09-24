@@ -10,7 +10,12 @@
 		873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873369AA1D9648A700E61E21 /* AppDelegate.swift */; };
 		873369B21D9648A700E61E21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873369B11D9648A700E61E21 /* Assets.xcassets */; };
 		873369B51D9648A700E61E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873369B31D9648A700E61E21 /* LaunchScreen.storyboard */; };
-		D47C1FD795DBBF49CA26B201 /* Pods_Divvy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B39D8E1D5D3AA3EB87AA65 /* Pods_Divvy.framework */; };
+		B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809D91D96963600DD4EBF /* DVUser.swift */; };
+		B7A809DC1D96965300DD4EBF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DB1D96965300DD4EBF /* Item.swift */; };
+		B7A809DE1D96966500DD4EBF /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DD1D96966500DD4EBF /* Food.swift */; };
+		B7A809E01D96967500DD4EBF /* NonFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DF1D96967500DD4EBF /* NonFood.swift */; };
+		B7A809E21D96968D00DD4EBF /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809E11D96968D00DD4EBF /* Group.swift */; };
+		D47C1FD795DBBF49CA26B201 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		EF31942A1D967F8700CC0A26 /* DVLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194291D967F8700CC0A26 /* DVLogger.swift */; };
 		EF31942D1D967FF600CC0A26 /* DVConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31942C1D967FF600CC0A26 /* DVConstants.swift */; };
 		EF3194331D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194321D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift */; };
@@ -27,6 +32,11 @@
 		873369B11D9648A700E61E21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		873369B41D9648A700E61E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873369B61D9648A700E61E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7A809D91D96963600DD4EBF /* DVUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVUser.swift; sourceTree = "<group>"; };
+		B7A809DB1D96965300DD4EBF /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B7A809DD1D96966500DD4EBF /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		B7A809DF1D96967500DD4EBF /* NonFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonFood.swift; sourceTree = "<group>"; };
+		B7A809E11D96968D00DD4EBF /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		EF3194291D967F8700CC0A26 /* DVLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVLogger.swift; sourceTree = "<group>"; };
 		EF31942C1D967FF600CC0A26 /* DVConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVConstants.swift; sourceTree = "<group>"; };
 		EF3194321D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DVLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
@@ -40,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47C1FD795DBBF49CA26B201 /* Pods_Divvy.framework in Frameworks */,
+				D47C1FD795DBBF49CA26B201 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,7 +60,6 @@
 		4D6CAAABF1ABE13072516CC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				74B39D8E1D5D3AA3EB87AA65 /* Pods_Divvy.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,6 +122,11 @@
 		B7A809C41D967CDD00DD4EBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B7A809D91D96963600DD4EBF /* DVUser.swift */,
+				B7A809DB1D96965300DD4EBF /* Item.swift */,
+				B7A809DD1D96966500DD4EBF /* Food.swift */,
+				B7A809DF1D96967500DD4EBF /* NonFood.swift */,
+				B7A809E11D96968D00DD4EBF /* Group.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -301,11 +315,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A809E01D96967500DD4EBF /* NonFood.swift in Sources */,
+				B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */,
+				B7A809DC1D96965300DD4EBF /* Item.swift in Sources */,
+				B7A809E21D96968D00DD4EBF /* Group.swift in Sources */,
 				EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */,
 				EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */,
 				873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */,
 				EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */,
 				EF3194331D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift in Sources */,
+				B7A809DE1D96966500DD4EBF /* Food.swift in Sources */,
 				EF31942D1D967FF600CC0A26 /* DVConstants.swift in Sources */,
 				EF31942A1D967F8700CC0A26 /* DVLogger.swift in Sources */,
 			);
