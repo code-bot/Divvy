@@ -10,6 +10,15 @@
 		873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873369AA1D9648A700E61E21 /* AppDelegate.swift */; };
 		873369B21D9648A700E61E21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873369B11D9648A700E61E21 /* Assets.xcassets */; };
 		873369B51D9648A700E61E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873369B31D9648A700E61E21 /* LaunchScreen.storyboard */; };
+		87EE866F1D96BC2D00819D63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE866E1D96BC2D00819D63 /* HomeViewController.swift */; };
+		87EE86711D96BC6200819D63 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86701D96BC6200819D63 /* Model.swift */; };
+		87EE86751D96BD3100819D63 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86721D96BD3100819D63 /* TitleViewController.swift */; };
+		87EE86761D96BD3100819D63 /* EmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86731D96BD3100819D63 /* EmailSignUpViewController.swift */; };
+		87EE86771D96BD3100819D63 /* AdditionalSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86741D96BD3100819D63 /* AdditionalSignUpViewController.swift */; };
+		87EE867C1D96BD5800819D63 /* LoginHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86781D96BD5800819D63 /* LoginHubView.swift */; };
+		87EE867D1D96BD5800819D63 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86791D96BD5800819D63 /* SignUpTextField.swift */; };
+		87EE867E1D96BD5800819D63 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE867A1D96BD5800819D63 /* CheckBox.swift */; };
+		87EE867F1D96BD5800819D63 /* PhotoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE867B1D96BD5800819D63 /* PhotoSelector.swift */; };
 		B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809D91D96963600DD4EBF /* DVUser.swift */; };
 		B7A809DC1D96965300DD4EBF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DB1D96965300DD4EBF /* Item.swift */; };
 		B7A809DE1D96966500DD4EBF /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DD1D96966500DD4EBF /* Food.swift */; };
@@ -18,8 +27,8 @@
 		B7A809E41D96971000DD4EBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A809E31D96971000DD4EBF /* GoogleService-Info.plist */; };
 		B7A809E81D96AAAE00DD4EBF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */; };
 		D2F87B60773B7692DD37671C /* Pods_Divvy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA6AD4933AF1E46EDA3C16F /* Pods_Divvy.framework */; };
-		EF31942D1D967FF600CC0A26 /* DVConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31942C1D967FF600CC0A26 /* DVConstants.swift */; };
-		EF3194331D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194321D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift */; };
+		EF31942D1D967FF600CC0A26 /* DVUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31942C1D967FF600CC0A26 /* DVUIConstants.swift */; };
+		EF3194331D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194321D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift */; };
 		EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */; };
 		EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */; };
 		EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */; };
@@ -33,6 +42,15 @@
 		873369B11D9648A700E61E21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		873369B41D9648A700E61E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873369B61D9648A700E61E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87EE866E1D96BC2D00819D63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		87EE86701D96BC6200819D63 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		87EE86721D96BD3100819D63 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
+		87EE86731D96BD3100819D63 /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
+		87EE86741D96BD3100819D63 /* AdditionalSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalSignUpViewController.swift; sourceTree = "<group>"; };
+		87EE86781D96BD5800819D63 /* LoginHubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHubView.swift; sourceTree = "<group>"; };
+		87EE86791D96BD5800819D63 /* SignUpTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
+		87EE867A1D96BD5800819D63 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		87EE867B1D96BD5800819D63 /* PhotoSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelector.swift; sourceTree = "<group>"; };
 		B7A809D91D96963600DD4EBF /* DVUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVUser.swift; sourceTree = "<group>"; };
 		B7A809DB1D96965300DD4EBF /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B7A809DD1D96966500DD4EBF /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -41,8 +59,8 @@
 		B7A809E31D96971000DD4EBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		EAA6AD4933AF1E46EDA3C16F /* Pods_Divvy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Divvy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF31942C1D967FF600CC0A26 /* DVConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVConstants.swift; sourceTree = "<group>"; };
-		EF3194321D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DVLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
+		EF31942C1D967FF600CC0A26 /* DVUIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVUIConstants.swift; sourceTree = "<group>"; };
+		EF3194321D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -114,8 +132,8 @@
 		B7A809C31D967CCE00DD4EBF /* Constants+Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EF31942C1D967FF600CC0A26 /* DVConstants.swift */,
-				EF3194321D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift */,
+				EF31942C1D967FF600CC0A26 /* DVUIConstants.swift */,
+				EF3194321D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift */,
 				EF3194341D96808000CC0A26 /* UIColor+Extensions.swift */,
 				EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */,
 				EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */,
@@ -131,6 +149,7 @@
 				B7A809DD1D96966500DD4EBF /* Food.swift */,
 				B7A809DF1D96967500DD4EBF /* NonFood.swift */,
 				B7A809E11D96968D00DD4EBF /* Group.swift */,
+				87EE86701D96BC6200819D63 /* Model.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -138,6 +157,10 @@
 		B7A809C51D967CE300DD4EBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87EE86781D96BD5800819D63 /* LoginHubView.swift */,
+				87EE86791D96BD5800819D63 /* SignUpTextField.swift */,
+				87EE867A1D96BD5800819D63 /* CheckBox.swift */,
+				87EE867B1D96BD5800819D63 /* PhotoSelector.swift */,
 				B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */,
 			);
 			name = View;
@@ -146,6 +169,10 @@
 		B7A809C61D967CE600DD4EBF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				87EE86721D96BD3100819D63 /* TitleViewController.swift */,
+				87EE86731D96BD3100819D63 /* EmailSignUpViewController.swift */,
+				87EE86741D96BD3100819D63 /* AdditionalSignUpViewController.swift */,
+				87EE866E1D96BC2D00819D63 /* HomeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -321,18 +348,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87EE867C1D96BD5800819D63 /* LoginHubView.swift in Sources */,
 				B7A809E01D96967500DD4EBF /* NonFood.swift in Sources */,
 				B7A809E81D96AAAE00DD4EBF /* HomePageView.swift in Sources */,
+				87EE86771D96BD3100819D63 /* AdditionalSignUpViewController.swift in Sources */,
+				87EE867E1D96BD5800819D63 /* CheckBox.swift in Sources */,
 				B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */,
 				B7A809DC1D96965300DD4EBF /* Item.swift in Sources */,
 				B7A809E21D96968D00DD4EBF /* Group.swift in Sources */,
 				EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */,
 				EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */,
+				87EE86761D96BD3100819D63 /* EmailSignUpViewController.swift in Sources */,
+				87EE86711D96BC6200819D63 /* Model.swift in Sources */,
+				87EE867D1D96BD5800819D63 /* SignUpTextField.swift in Sources */,
 				873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */,
 				EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */,
-				EF3194331D96806B00CC0A26 /* DVLayoutConstraint+Extensions.swift in Sources */,
+				EF3194331D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				B7A809DE1D96966500DD4EBF /* Food.swift in Sources */,
-				EF31942D1D967FF600CC0A26 /* DVConstants.swift in Sources */,
+				87EE866F1D96BC2D00819D63 /* HomeViewController.swift in Sources */,
+				EF31942D1D967FF600CC0A26 /* DVUIConstants.swift in Sources */,
+				87EE867F1D96BD5800819D63 /* PhotoSelector.swift in Sources */,
+				87EE86751D96BD3100819D63 /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

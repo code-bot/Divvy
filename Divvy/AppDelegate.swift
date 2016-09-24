@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-//import Firebase
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,22 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let ocrURL = "http://www.ocrwebservice.com/restservices/processDocument?gettext=true"
-        let data = (username + ":" + licenseCode).dataUsingEncoding(NSUTF8StringEncoding)
-        let headers = [
-            "Authorization": "Basic " + data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
-            "Content-Type": "application/json"
-        ]
-        let image = UIImage(named: "publix")
-        let imageData = UIImagePNGRepresentation(image!)
-        Alamofire.upload(.POST, ocrURL, headers: headers, data: imageData!).responseJSON { response in
-            debugPrint(response)
-            
-            if let json = response.result.value {
-                print("JSON: \(json)")
-            }
-        }
         
+        FIRApp.configure()
+        
+//        let ocrURL = "http://www.ocrwebservice.com/restservices/processDocument?gettext=true"
+//        let data = (username + ":" + licenseCode).dataUsingEncoding(NSUTF8StringEncoding)
+//        let headers = [
+//            "Authorization": "Basic " + data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)),
+//            "Content-Type": "application/json"
+//        ]
+//        let image = UIImage(named: "publix")
+//        let imageData = UIImagePNGRepresentation(image!)
+//        Alamofire.upload(.POST, ocrURL, headers: headers, data: imageData!).responseJSON { response in
+//            debugPrint(response)
+//            
+//            if let json = response.result.value {
+//                print("JSON: \(json)")
+//            }
+//        }
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = TitleViewController()
+        window?.makeKeyAndVisible()
         
         return true
     }

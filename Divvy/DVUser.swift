@@ -8,22 +8,24 @@
 
 import Foundation
 import Darwin
+import UIKit
 
 class DVUser {
     var email : String!
-    var pass : String!
+    var pass  : String!
     var fName : String!
     var lName : String!
+    var photo : UIImage!
     var vegPref : Bool!
     var foodPref = [Item]()
     
-    init(email: String, pass: String, fName: String, lName: String, vegPref: Bool) {
+    init(email: String) {
+        self.email = email
+    }
+    
+    init(email: String, pass: String) {
         self.email = email
         self.pass = pass
-        self.fName = fName
-        self.lName = lName
-        self.vegPref = vegPref
-        foodPref = []
     }
     
     func addToFoodPref(item: Item) {
