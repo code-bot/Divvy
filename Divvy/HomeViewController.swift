@@ -18,16 +18,33 @@ UINavigationControllerDelegate {
     
     
     func openCameraButton(sender: AnyObject!) {
-        print("k")
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            print("k")
-
             var imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
             imagePicker.allowsEditing = false
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            dismissViewControllerAnimated(true, completion: { self.customFunction(pickedImage)} )
+        }else{
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    func customFunction(image: UIImage) {
+        print("Do Something with Image @Sahaj")
+        self.presentViewController(TransactionViewController(), animated: true, completion: nil)
+    }
+    
+
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func configureButtons() {
