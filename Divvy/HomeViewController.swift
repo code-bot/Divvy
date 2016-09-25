@@ -42,6 +42,7 @@ UINavigationControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             dismissViewControllerAnimated(true, completion: { self.customFunction(pickedImage)} )
+            self.presentViewController(TransactionViewController(), animated: true, completion: nil)
         }else{
             dismissViewControllerAnimated(true, completion: nil)
         }

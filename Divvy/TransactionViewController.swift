@@ -14,6 +14,15 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
     var totaltransPageView = TotalTransactionView(frame: CGRect.zero)
     var navBarView = NavBarView(frame: CGRect.zero)
     
+    func signOutButton(sender: AnyObject!) {
+        Model.sharedInstance.logoutCurrUser()
+        self.presentViewController(TitleViewController(), animated: true, completion: nil)
+    }
+    
+    func editProfileButton(sender: AnyObject!) {
+        self.presentViewController(EditProfileViewController(), animated: true, completion: nil)
+    }
+    
     func configureView() {
         self.view.backgroundColor = DVUIConstants.colors.darkGrayBackground
         
@@ -26,6 +35,13 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
         ]
         
         self.view.prepareViewsForAutoLayout(viewsDict)
+        
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-20-[navbar]", views: viewsDict))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[navbar]|", views: viewsDict))
+        
+        
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:[finalBar(==100)]|", views: viewsDict))
         
@@ -46,8 +62,10 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
     
     func configureButtons() {
         self.totaltransPageView.completeTrans.addTarget(self, action: #selector(backToHomePage), forControlEvents: .TouchUpInside)
+        self.navBarView.signOut.addTarget(self, action: #selector(signOutButton), forControlEvents: .TouchUpInside)
+        self.navBarView.editProfile.addTarget(self, action: #selector(editProfileButton), forControlEvents: .TouchUpInside)
     }
-    
+
     func backToHomePage() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
