@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeTableViewcell: UIView {
+class HomeTableViewCell: UITableViewCell {
     
     var date = UILabel()
     var youPay = UILabel()
@@ -49,12 +49,14 @@ class HomeTableViewcell: UIView {
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-10-[tot]", views: viewsDict))
         
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[youPay(==\(String(DVUIConstants.screenWidth * 0.4)))]|", views: viewsDict))
+        
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureView()
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

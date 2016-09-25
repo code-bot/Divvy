@@ -27,6 +27,12 @@ class Model {
         //default data
     }
     
+    func addTransactions() {
+        var trans = [Transaction]()
+        trans.append(Transaction(userTot: 10.0, groupTot: 20.0, date: "Something"))
+        currUser?.remainingTransactions = trans
+    }
+    
     func loginUser(user: DVUser) {
         currUser = user
     }

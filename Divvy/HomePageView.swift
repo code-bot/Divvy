@@ -29,12 +29,14 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.bounces = false
         
-        //tableView.registerClass(HomeTableViewCell(), forCellReuseIdentifier: "Home")
+        tableView.registerClass(HomeTableViewCell.self, forCellReuseIdentifier: "Home")
     }
     
 
     func configureView() {
         self.backgroundColor = UIColor.clearColor()
+        
+        Model.sharedInstance.addTransactions()
         
         configureButtons()
         configureTable()
@@ -55,7 +57,6 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
         return Model.sharedInstance.items.count
     }
     
@@ -64,10 +65,12 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("Home")
-//        
-//        return cell
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("Home") as! HomeTableViewCell
+        
+        cell.date = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].date
+        cell.youPay = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].userTotal
+        cell.total = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].groupTotal
+        return cell!
     }
     
     override init(frame: CGRect) {

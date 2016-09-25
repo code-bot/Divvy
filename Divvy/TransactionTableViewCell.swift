@@ -9,4 +9,6 @@
 import Foundation
 import UIKit
 
-class TotalTransactionView: UIView {
+class TransactionTableViewCell: UIView {
+
+}
