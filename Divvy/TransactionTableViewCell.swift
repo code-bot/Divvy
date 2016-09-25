@@ -9,4 +9,46 @@
 import Foundation
 import UIKit
 
-class TotalTransactionView: UIView {
+class TransactionTableViewCell: UIView {
+    var item = UILabel()
+    var price = UILabel()
+    //var users = [UIImage()]
+    
+    func configureLabels() {
+        item.text = "ItemName"
+        item.textColor = UIColor.whiteColor()
+        item.textAlignment = .Center
+        item.font.fontWithSize(24.0)
+        price.text = "Price"
+        price.textColor = UIColor.whiteColor()
+        price.textAlignment = .Center
+        price.font.fontWithSize(14.0)
+    }
+    
+    func configureView() {
+        
+        configureLabels()
+        
+        let viewsDict   =   [
+            "item"      :   item,
+            "price"     :   price
+        ]
+        
+        self.prepareViewsForAutoLayout(viewsDict)
+        
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-5-[item]", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-5-[price]|", views: viewsDict))
+        
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-10-[item]", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[price]-10-|", views: viewsDict))
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
