@@ -12,13 +12,20 @@ import UIKit
 
 class EditProfileDetailsView: UIView {
     
-    var userPhoto = UIButton()
+//    var userPhoto = UIButton()
     var fName = UITextField()
     var lName = UITextField()
     var emailID = UITextField()
+    var submit = UIButton()
+    
+//    func configureButton() {
+//        userPhoto.setImage(Model.sharedInstance.currUser!.photo, forState: .Normal)
+//    }
     
     func configureButton() {
-        userPhoto.setImage(Model.sharedInstance.currUser!.photo, forState: .Normal)
+        submit.setTitle("Submit", forState: .Normal)
+        submit.backgroundColor = DVUIConstants.colors.loginPeach
+        submit.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
     
     func configureFields() {
@@ -62,7 +69,8 @@ class EditProfileDetailsView: UIView {
         configureFields()
         
         let viewDict   =   [
-            "photo"     :   userPhoto,
+//            "photo"     :   userPhoto,
+            "submit"    :   submit,
             "fName"     :   fName,
             "lName"     :   lName,
             "email"     :   emailID
@@ -70,11 +78,14 @@ class EditProfileDetailsView: UIView {
         
         self.prepareViewsForAutoLayout(viewDict)
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-5-[photo]-15-[fname]-15-[lname]-15-[email]", views: viewDict))
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-100-[photo]-100-|", views: viewDict))
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[fname]-\(String(DVUIConstants.textFieldCenterWidthOffset))-|", views: viewDict))
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[lname]-\(String(DVUIConstants.textFieldCenterWidthOffset))-|", views: viewDict))
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[email]-\(String(DVUIConstants.textFieldCenterWidthOffset))-|", views: viewDict))
+//        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-5-[photo]-15-[fname]-15-[lname]-15-[email]", views: viewDict))
+//        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-100-[photo]-100-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[fName]-15-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-15-[fName]-15-[lName]-15-[email]-15-[submit]-15-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[lName]-15-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[email]-15-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[submit]-15-|", views: viewDict))
+
     }
     
     override init(frame: CGRect) {
