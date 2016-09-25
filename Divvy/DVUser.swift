@@ -18,6 +18,7 @@ class DVUser {
     var photo : UIImage!
     var vegPref : Bool!
     var foodPref = [Item]()
+    var remainingTransactions = [Transaction]()
     
     init(email: String) {
         self.email = email
