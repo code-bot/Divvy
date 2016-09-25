@@ -29,6 +29,15 @@ UINavigationControllerDelegate {
         }
     }
     
+    func signOutButton(sender: AnyObject!) {
+        Model.sharedInstance.logoutCurrUser()
+        self.presentViewController(TitleViewController(), animated: true, completion: nil)
+    }
+    
+    func editProfileButton(sender: AnyObject!) {
+        self.presentViewController(EditProfileViewController(), animated: true, completion: nil)
+    }
+    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
@@ -51,7 +60,6 @@ UINavigationControllerDelegate {
         var i = 0
         while i <= charIndex && !(foundPrice && notItemName) {
             let currChar = line[line.startIndex.advancedBy(charIndex - i)]
-            //print(currChar)
             if !foundPrice && currChar == " " {
                 foundPrice = true
             } else if !foundPrice {
@@ -174,6 +182,8 @@ UINavigationControllerDelegate {
     
     func configureButtons() {
          self.homePageView.camera.addTarget(self, action: #selector(openCameraButton), forControlEvents: .TouchUpInside)
+         self.navBarView.signOut.addTarget(self, action: #selector(signOutButton), forControlEvents: .TouchUpInside)
+        self.navBarView.editProfile.addTarget(self, action: #selector(editProfileButton), forControlEvents: .TouchUpInside)
     }
     
     func configureView() {
@@ -186,7 +196,8 @@ UINavigationControllerDelegate {
         
         let viewsDict = [
             "navBar"    : navBarView,
-            "home"      : homePageView
+            "home"      : homePageView,
+          
         ]
         
         self.view.prepareViewsForAutoLayout(viewsDict)

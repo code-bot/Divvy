@@ -7,4 +7,11 @@
 //
 
 import Foundation
+import UIKit
+import Alamofire
+import SwiftyJSON
 
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
+
+}
