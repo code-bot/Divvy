@@ -23,6 +23,7 @@
 		B7461A401D9743BC00CF7D45 /* TotalTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */; };
 		B7461A421D97481C00CF7D45 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A411D97481C00CF7D45 /* EditProfileViewController.swift */; };
 		B7461A441D97483E00CF7D45 /* EditProfileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */; };
+		B7461A481D97748700CF7D45 /* EditProfileBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7461A471D97748700CF7D45 /* EditProfileBarView.swift */; };
 		B7A809DA1D96963600DD4EBF /* DVUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809D91D96963600DD4EBF /* DVUser.swift */; };
 		B7A809DC1D96965300DD4EBF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DB1D96965300DD4EBF /* Item.swift */; };
 		B7A809DE1D96966500DD4EBF /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A809DD1D96966500DD4EBF /* Food.swift */; };
@@ -60,6 +61,7 @@
 		B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTransactionView.swift; sourceTree = "<group>"; };
 		B7461A411D97481C00CF7D45 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileDetailsView.swift; sourceTree = "<group>"; };
+		B7461A471D97748700CF7D45 /* EditProfileBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileBarView.swift; sourceTree = "<group>"; };
 		B7A809D91D96963600DD4EBF /* DVUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVUser.swift; sourceTree = "<group>"; };
 		B7A809DB1D96965300DD4EBF /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B7A809DD1D96966500DD4EBF /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				B7A809E71D96AAAE00DD4EBF /* HomePageView.swift */,
 				B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */,
 				B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */,
+				B7461A471D97748700CF7D45 /* EditProfileBarView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */,
 				EF31943D1D96E81C00CC0A26 /* TransactionViewController.swift in Sources */,
 				87EE86761D96BD3100819D63 /* EmailSignUpViewController.swift in Sources */,
+				B7461A481D97748700CF7D45 /* EditProfileBarView.swift in Sources */,
 				87EE86711D96BC6200819D63 /* Model.swift in Sources */,
 				87EE867D1D96BD5800819D63 /* SignUpTextField.swift in Sources */,
 				873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */,

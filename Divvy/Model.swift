@@ -17,8 +17,9 @@ class Model {
     var firCurrUser : FIRUser?
     var dbRef : FIRDatabaseReference!
     var items : [Item]
-    let licenseCode = "015B4210-1C16-4485-868B-D8EFFE7D1A61"
-    let username = "sahajbot"
+    let licenseCode = "0899F356-6208-4E64-90EB-20797A8BAE07"
+    let username = "SHBOT"
+    let microsoftAPIKey = "a69307be2f924ed1a98b29863f48d986"
     
     init() {
         dbRef = FIRDatabase.database().reference()
