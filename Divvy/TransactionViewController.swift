@@ -12,11 +12,11 @@ import UIKit
 class TransactionViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     var totaltransPageView = TotalTransactionView(frame: CGRect.zero)
-    var navBarView = NavBarView(frame: CGRect.zero)
+    var navBarTransaction = NavBarTransaction(frame: CGRect.zero)
     
-    func signOutButton(sender: AnyObject!) {
-        Model.sharedInstance.logoutCurrUser()
-        self.presentViewController(TitleViewController(), animated: true, completion: nil)
+    
+    func backButton(sender: AnyObject!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func editProfileButton(sender: AnyObject!) {
@@ -30,7 +30,7 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
         configureLabels()
         
         let viewsDict = [
-            "navbar"    :   navBarView,
+            "navbar"    :   navBarTransaction,
             "finalBar"  :   totaltransPageView
         ]
         
@@ -46,7 +46,7 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:[finalBar(==100)]|", views: viewsDict))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[finalBar]|", views: viewsDict))
-
+        
     }
     
     func configureLabels() {
@@ -62,10 +62,9 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
     
     func configureButtons() {
         self.totaltransPageView.completeTrans.addTarget(self, action: #selector(backToHomePage), forControlEvents: .TouchUpInside)
-        self.navBarView.signOut.addTarget(self, action: #selector(signOutButton), forControlEvents: .TouchUpInside)
-        self.navBarView.editProfile.addTarget(self, action: #selector(editProfileButton), forControlEvents: .TouchUpInside)
+        self.navBarTransaction.back.addTarget(self, action: #selector(backButton), forControlEvents: .TouchUpInside)
     }
-
+    
     func backToHomePage() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

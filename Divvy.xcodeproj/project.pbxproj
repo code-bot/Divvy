@@ -11,6 +11,7 @@
 		873369B21D9648A700E61E21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873369B11D9648A700E61E21 /* Assets.xcassets */; };
 		873369B51D9648A700E61E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873369B31D9648A700E61E21 /* LaunchScreen.storyboard */; };
 		877465EB1D979FDD0015C857 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877465EA1D979FDD0015C857 /* Transaction.swift */; };
+		877465ED1D97A1F20015C857 /* NoDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877465EC1D97A1F20015C857 /* NoDataTableCell.swift */; };
 		87B19C751D97218000F42CF9 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B19C741D97218000F42CF9 /* NavBarView.swift */; };
 		87EE866F1D96BC2D00819D63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE866E1D96BC2D00819D63 /* HomeViewController.swift */; };
 		87EE86711D96BC6200819D63 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE86701D96BC6200819D63 /* Model.swift */; };
@@ -41,6 +42,7 @@
 		EF3194371D96808D00CC0A26 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */; };
 		EF3194391D96809A00CC0A26 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */; };
 		EF31943D1D96E81C00CC0A26 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */; };
+		EF78779F1D97A56F009448A2 /* NavBarTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF78779E1D97A56F009448A2 /* NavBarTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,7 @@
 		873369B41D9648A700E61E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873369B61D9648A700E61E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		877465EA1D979FDD0015C857 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		877465EC1D97A1F20015C857 /* NoDataTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataTableCell.swift; sourceTree = "<group>"; };
 		87B19C741D97218000F42CF9 /* NavBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
 		87EE866E1D96BC2D00819D63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		87EE86701D96BC6200819D63 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 		EF3194361D96808D00CC0A26 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF3194381D96809A00CC0A26 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		EF31943C1D96E81C00CC0A26 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		EF78779E1D97A56F009448A2 /* NavBarTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +189,9 @@
 				B7461A3F1D9743BC00CF7D45 /* TotalTransactionView.swift */,
 				B7461A431D97483E00CF7D45 /* EditProfileDetailsView.swift */,
 				B7461A471D97748700CF7D45 /* EditProfileBarView.swift */,
+				877465EC1D97A1F20015C857 /* NoDataTableCell.swift */,
 				B7461A4D1D979EF200CF7D45 /* HomeTableViewCell.swift */,
+				EF78779E1D97A56F009448A2 /* NavBarTransaction.swift */,
 				B7461A4F1D979EFF00CF7D45 /* TransactionTableViewCell.swift */,
 			);
 			name = View;
@@ -412,6 +418,7 @@
 				873369AB1D9648A700E61E21 /* AppDelegate.swift in Sources */,
 				87B19C751D97218000F42CF9 /* NavBarView.swift in Sources */,
 				EF3194351D96808000CC0A26 /* UIColor+Extensions.swift in Sources */,
+				EF78779F1D97A56F009448A2 /* NavBarTransaction.swift in Sources */,
 				EF3194331D96806B00CC0A26 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				B7A809DE1D96966500DD4EBF /* Food.swift in Sources */,
 				87EE866F1D96BC2D00819D63 /* HomeViewController.swift in Sources */,
@@ -421,6 +428,7 @@
 				87EE867F1D96BD5800819D63 /* PhotoSelector.swift in Sources */,
 				B7461A421D97481C00CF7D45 /* EditProfileViewController.swift in Sources */,
 				87EE86751D96BD3100819D63 /* TitleViewController.swift in Sources */,
+				877465ED1D97A1F20015C857 /* NoDataTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
