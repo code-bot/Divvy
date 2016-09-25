@@ -13,5 +13,28 @@ import SwiftyJSON
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
-
+    
+    var editDetailsView = EditProfileDetailsView(frame: CGRect.zero)
+    
+    func configureLabels() {
+        
+    }
+    
+    func configureButtons() {
+        
+    }
+    
+    func configureView() {
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+    }
+    
 }

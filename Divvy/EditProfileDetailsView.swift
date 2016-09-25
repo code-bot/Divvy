@@ -58,10 +58,33 @@ class EditProfileDetailsView: UIView {
     }
     
     func configureView() {
+        configureButton()
+        configureFields()
         
+        let viewDict   =   [
+            "photo"     :   userPhoto,
+            "fName"     :   fName,
+            "lName"     :   lName,
+            "email"     :   emailID
+        ]
+        
+        self.prepareViewsForAutoLayout(viewDict)
+        
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-5-[photo]-15-[fname]-15-[lname]-15-[email]", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-100-[photo]-100-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[fname]-\(String(DVUIConstants.textFieldCenterWidthOffset))-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[lname]-\(String(DVUIConstants.textFieldCenterWidthOffset))-|", views: viewDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[email]-\(String(DVUIConstants.textFieldCenterWidthOffset))-|", views: viewDict))
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
 }
