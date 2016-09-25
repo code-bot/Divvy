@@ -36,7 +36,7 @@ class HomePageView: UIView, UITextViewDelegate {
         
         self.prepareViewsForAutoLayout(viewsDict)
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-40-[camera(==\(String(DVUIConstants.cameraHeight)))]-25-|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:[camera]|", views: viewsDict))
         
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[camera]-15-|", views: viewsDict))
     }

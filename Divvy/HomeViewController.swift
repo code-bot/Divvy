@@ -20,19 +20,29 @@ UINavigationControllerDelegate {
     var navBarView = NavBarView(frame: CGRect.zero)
     
     func openCameraButton(sender: AnyObject!) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
             var imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
             imagePicker.allowsEditing = false
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func signOutButton(sender: AnyObject!) {
+        Model.sharedInstance.logoutCurrUser()
+        self.presentViewController(TitleViewController(), animated: true, completion: nil)
+    }
+    
+    func editProfileButton(sender: AnyObject!) {
+        self.presentViewController(EditProfileViewController(), animated: true, completion: nil)
     }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             dismissViewControllerAnimated(true, completion: { self.customFunction(pickedImage)} )
+            self.presentViewController(TransactionViewController(), animated: true, completion: nil)
         }else{
             dismissViewControllerAnimated(true, completion: nil)
         }
@@ -73,6 +83,11 @@ UINavigationControllerDelegate {
 //            NSCharacterSet.whitespaceAndNewlineCharacterSet()
 //            ), Double(price)!)
 //    }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     
     func customFunction(image: UIImage) {
         //let ocrURL = "https://api.projectoxford.ai/vision/v1.0/ocr?"
@@ -172,6 +187,8 @@ UINavigationControllerDelegate {
     
     func configureButtons() {
          self.homePageView.camera.addTarget(self, action: #selector(openCameraButton), forControlEvents: .TouchUpInside)
+         self.navBarView.signOut.addTarget(self, action: #selector(signOutButton), forControlEvents: .TouchUpInside)
+        self.navBarView.editProfile.addTarget(self, action: #selector(editProfileButton), forControlEvents: .TouchUpInside)
     }
     
     func configureView() {
@@ -184,12 +201,13 @@ UINavigationControllerDelegate {
         
         let viewsDict = [
             "navBar"    : navBarView,
-            "home"      : homePageView
+            "home"      : homePageView,
+          
         ]
         
         self.view.prepareViewsForAutoLayout(viewsDict)
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-20-[navBar][home]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-20-[navBar][home]-20-|", views: viewsDict))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[navBar]|", views: viewsDict))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[home]|", views: viewsDict))
