@@ -9,11 +9,11 @@
 import UIKit
 
 struct DVUIConstants {
-    static let viewFactor           = UIScreen.mainScreen().bounds.size.width / 375
+    static let viewFactor           = UIScreen.main.bounds.size.width / 375
     static let animationDuration    = 0.25
     
     //Screensize
-    static let screenSize           = UIScreen.mainScreen().bounds.size
+    static let screenSize           = UIScreen.main.bounds.size
     static let screenWidth          = screenSize.width
     static let screenHeight         = screenSize.height
     

@@ -18,7 +18,7 @@ class DVUser {
     var photo : UIImage!
     var vegPref : Bool!
     var foodPref = [Item]()
-    var remainingTransactions = [Transaction]()
+    var remainingTransactions = [(Transaction)]()
     
     init(email: String) {
         self.email = email
@@ -29,7 +29,7 @@ class DVUser {
         self.pass = pass
     }
     
-    func addToFoodPref(item: Item) {
+    func addToFoodPref(_ item: Item) {
         foodPref.append(item)
     }
 }

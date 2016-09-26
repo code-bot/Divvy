@@ -24,17 +24,17 @@ class NavBarView: UIView, UITextViewDelegate {
     
     func configureImageViews() {
         titleLogoView.image = DVUIConstants.logoImg
-        titleLogoView.contentMode = .ScaleAspectFit
+        titleLogoView.contentMode = .scaleAspectFit
     }
     
     func configureButtons() {
-        signOut.setTitle("Sign Out", forState: .Normal)
-        signOut.backgroundColor = UIColor.clearColor()
-        signOut.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
+        signOut.setTitle("Sign Out", for: UIControlState())
+        signOut.backgroundColor = UIColor.clear
+        signOut.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
         
-        editProfile.setTitle("Edit Profile", forState: .Normal)
-        editProfile.backgroundColor = UIColor.clearColor()
-        editProfile.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
+        editProfile.setTitle("Edit Profile", for: UIControlState())
+        editProfile.backgroundColor = UIColor.clear
+        editProfile.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
     }
     
     func configureLogo() {
@@ -46,7 +46,7 @@ class NavBarView: UIView, UITextViewDelegate {
         
     }
     func configureView() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         configureButtons()
         configureImageViews()
@@ -57,7 +57,7 @@ class NavBarView: UIView, UITextViewDelegate {
             "editProfile": editProfile,
             "logo"      :   titleLogoView,
 
-            ]
+            ] as [String : UIView]
         
         self.prepareViewsForAutoLayout(viewsDict)
         
@@ -65,8 +65,8 @@ class NavBarView: UIView, UITextViewDelegate {
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-25-[logo]-25-|", views: viewsDict))
 
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-15-[signOut(==\(String(DVUIConstants.signOutHeight)))]-25-|", views: viewsDict))
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-15-[editProfile(==\(String(DVUIConstants.cameraHeight)))]-25-|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-15-[signOut(==\(String(describing: DVUIConstants.signOutHeight)))]-25-|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-15-[editProfile(==\(String(describing: DVUIConstants.cameraHeight)))]-25-|", views: viewsDict))
         
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[signOut]", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[editProfile]-15-|", views: viewsDict))

@@ -20,21 +20,21 @@ class CheckBox: UIView {
     var isChecked = false {
         didSet{
             if isChecked {
-                self.box.setImage(DVUIConstants.checkedBox, forState: .Normal)
+                self.box.setImage(DVUIConstants.checkedBox, for: UIControlState())
             } else {
-                self.box.setImage(DVUIConstants.emptyBox, forState: .Normal)
+                self.box.setImage(DVUIConstants.emptyBox, for: UIControlState())
             }
         }
     }
     
     func configureBtn() {
-        box.imageView?.contentMode = .ScaleAspectFit
-        box.setImage(DVUIConstants.emptyBox, forState: .Normal)
-        box.userInteractionEnabled = false
+        box.imageView?.contentMode = .scaleAspectFit
+        box.setImage(DVUIConstants.emptyBox, for: UIControlState())
+        box.isUserInteractionEnabled = false
     }
     
     func configureLbl() {
-        label.font = UIFont.systemFontOfSize(16.0)
+        label.font = UIFont.systemFont(ofSize: 16.0)
     }
     
     func configureView() {
@@ -45,7 +45,7 @@ class CheckBox: UIView {
         let viewsDict = [
             "box"   :   box,
             "lbl"   :   label
-        ]
+        ] as [String : UIView]
         self.prepareViewsForAutoLayout(viewsDict)
         
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|[box]|", views: viewsDict))

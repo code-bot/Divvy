@@ -23,44 +23,44 @@ class EditProfileDetailsView: UIView {
 //    }
     
     func configureButton() {
-        submit.setTitle("Submit", forState: .Normal)
+        submit.setTitle("Submit", for: UIControlState())
         submit.backgroundColor = DVUIConstants.colors.loginPeach
-        submit.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        submit.setTitleColor(UIColor.white, for: UIControlState())
     }
     
     func configureFields() {
-        fName.font = UIFont.systemFontOfSize(20)
-        fName.textColor = UIColor.whiteColor()
+        fName.font = UIFont.systemFont(ofSize: 20)
+        fName.textColor = UIColor.white
         fName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         fName.layer.borderWidth = 1
-        fName.layer.borderColor = DVUIConstants.colors.loginPeach.CGColor
+        fName.layer.borderColor = DVUIConstants.colors.loginPeach.cgColor
         fName.layer.cornerRadius = 20
         fName.clipsToBounds = true
-        fName.autocapitalizationType = .None
-        fName.autocorrectionType = .No
-        fName.returnKeyType = .Next
+        fName.autocapitalizationType = .none
+        fName.autocorrectionType = .no
+        fName.returnKeyType = .next
         lName.enablesReturnKeyAutomatically = true
-        lName.font = UIFont.systemFontOfSize(20)
-        lName.textColor = UIColor.whiteColor()
+        lName.font = UIFont.systemFont(ofSize: 20)
+        lName.textColor = UIColor.white
         lName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         lName.layer.borderWidth = 1
-        lName.layer.borderColor = DVUIConstants.colors.loginPeach.CGColor
+        lName.layer.borderColor = DVUIConstants.colors.loginPeach.cgColor
         lName.layer.cornerRadius = 20
         lName.clipsToBounds = true
-        lName.autocapitalizationType = .None
-        lName.autocorrectionType = .No
-        lName.returnKeyType = .Next
+        lName.autocapitalizationType = .none
+        lName.autocorrectionType = .no
+        lName.returnKeyType = .next
         lName.enablesReturnKeyAutomatically = true
-        emailID.font = UIFont.systemFontOfSize(20)
-        emailID.textColor = UIColor.whiteColor()
+        emailID.font = UIFont.systemFont(ofSize: 20)
+        emailID.textColor = UIColor.white
         emailID.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         emailID.layer.borderWidth = 1
-        emailID.layer.borderColor = DVUIConstants.colors.loginPeach.CGColor
+        emailID.layer.borderColor = DVUIConstants.colors.loginPeach.cgColor
         emailID.layer.cornerRadius = 20
         emailID.clipsToBounds = true
-        emailID.autocapitalizationType = .None
-        emailID.autocorrectionType = .No
-        emailID.returnKeyType = .Next
+        emailID.autocapitalizationType = .none
+        emailID.autocorrectionType = .no
+        emailID.returnKeyType = .next
         emailID.enablesReturnKeyAutomatically = true
     }
     
@@ -74,7 +74,7 @@ class EditProfileDetailsView: UIView {
             "fName"     :   fName,
             "lName"     :   lName,
             "email"     :   emailID
-        ]
+        ] as [String : UIView]
         
         self.prepareViewsForAutoLayout(viewDict)
         

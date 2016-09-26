@@ -19,32 +19,32 @@ UINavigationControllerDelegate {
     var homePageView = HomePageView(frame: CGRect(x: DVUIConstants.homeCenterWidthOffset, y: DVUIConstants.homeCenterHeightOffset, width: DVUIConstants.homeWidth, height: DVUIConstants.homeHeight))
     var navBarView = NavBarView(frame: CGRect.zero)
     
-    func openCameraButton(sender: AnyObject!) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-            var imagePicker = UIImagePickerController()
+    func openCameraButton(_ sender: AnyObject!) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
+            let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum;
             imagePicker.allowsEditing = false
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
-    func signOutButton(sender: AnyObject!) {
+    func signOutButton(_ sender: AnyObject!) {
         Model.sharedInstance.logoutCurrUser()
-        self.presentViewController(TitleViewController(), animated: true, completion: nil)
+        self.present(TitleViewController(), animated: true, completion: nil)
     }
     
-    func editProfileButton(sender: AnyObject!) {
-        self.presentViewController(EditProfileViewController(), animated: true, completion: nil)
+    func editProfileButton(_ sender: AnyObject!) {
+        self.present(EditProfileViewController(), animated: true, completion: nil)
     }
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            dismissViewControllerAnimated(true, completion: { self.customFunction(pickedImage)} )
-            self.presentViewController(TransactionViewController(), animated: true, completion: nil)
+            dismiss(animated: true, completion: { self.customFunction(pickedImage)} )
+            self.present(TransactionViewController(), animated: true, completion: nil)
         }else{
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -84,12 +84,12 @@ UINavigationControllerDelegate {
 //            ), Double(price)!)
 //    }
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     
-    func customFunction(image: UIImage) {
+    func customFunction(_ image: UIImage) {
         //let ocrURL = "https://api.projectoxford.ai/vision/v1.0/ocr?"
 //        let headers = [
 //            "Ocp-Apim-Subscription-Key": Model.sharedInstance.microsoftAPIKey,
@@ -178,32 +178,32 @@ UINavigationControllerDelegate {
 //                    print(error)
 //                }
 //            }
-            self.presentViewController(TransactionViewController(), animated: true, completion: nil)
+            self.present(TransactionViewController(), animated: true, completion: nil)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     func configureButtons() {
-         self.homePageView.camera.addTarget(self, action: #selector(openCameraButton), forControlEvents: .TouchUpInside)
-         self.navBarView.signOut.addTarget(self, action: #selector(signOutButton), forControlEvents: .TouchUpInside)
-        self.navBarView.editProfile.addTarget(self, action: #selector(editProfileButton), forControlEvents: .TouchUpInside)
+         self.homePageView.camera.addTarget(self, action: #selector(openCameraButton), for: .touchUpInside)
+         self.navBarView.signOut.addTarget(self, action: #selector(signOutButton), for: .touchUpInside)
+        self.navBarView.editProfile.addTarget(self, action: #selector(editProfileButton), for: .touchUpInside)
     }
     
     func configureView() {
         configureButtons()
         let gradient = CAGradientLayer()
         gradient.frame = self.view.bounds
-        gradient.colors = [DVUIConstants.colors.darkLoginGradientDark.CGColor, DVUIConstants.colors.darkLoginGradientLight.CGColor]
-        self.view.layer.insertSublayer(gradient, atIndex: 0)
+        gradient.colors = [DVUIConstants.colors.darkLoginGradientDark.cgColor, DVUIConstants.colors.darkLoginGradientLight.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
 
         
         let viewsDict = [
             "navBar"    : navBarView,
             "home"      : homePageView,
           
-        ]
+        ] as [String: UIView]
         
         self.view.prepareViewsForAutoLayout(viewsDict)
         

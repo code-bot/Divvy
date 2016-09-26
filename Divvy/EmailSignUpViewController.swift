@@ -31,20 +31,20 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
             $0.textField.delegate = self
         })
         
-        emailTF.textField.keyboardType = .EmailAddress
+        emailTF.textField.keyboardType = .emailAddress
         emailTF.textField.becomeFirstResponder()
     }
     
     func configureButtons() {
-        cancelBtn.setTitle("Cancel", forState: .Normal)
-        cancelBtn.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
-        cancelBtn.backgroundColor = UIColor.clearColor()
-        cancelBtn.addTarget(self, action: #selector(cancelSignUp), forControlEvents: .TouchUpInside)
+        cancelBtn.setTitle("Cancel", for: UIControlState())
+        cancelBtn.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
+        cancelBtn.backgroundColor = UIColor.clear
+        cancelBtn.addTarget(self, action: #selector(cancelSignUp), for: .touchUpInside)
         
-        continueBtn.setTitle("Continue", forState: .Normal)
-        continueBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        continueBtn.setTitle("Continue", for: UIControlState())
+        continueBtn.setTitleColor(UIColor.white, for: UIControlState())
         continueBtn.backgroundColor = DVUIConstants.colors.loginPeach
-        continueBtn.addTarget(self, action: #selector(continueSignUp), forControlEvents: .TouchUpInside)
+        continueBtn.addTarget(self, action: #selector(continueSignUp), for: .touchUpInside)
         continueBtn.layer.cornerRadius = 20
     }
     
@@ -61,26 +61,26 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
             "pTF"       :   passTF,
             "cpTF"      :   confirmPassTF,
             "conBtn"    :   continueBtn,
-        ]
+        ] as [String : UIView]
         
         self.view.prepareViewsForAutoLayout(viewsDict)
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-20-[cBtn]-30-[eTF(==\(String(DVUIConstants.textFieldHeight)))]-20-[pTF(==\(String(DVUIConstants.textFieldHeight)))]-20-[cpTF(==\(String(DVUIConstants.textFieldHeight)))]-30-[conBtn(==\(String(DVUIConstants.loginBtnsHeight)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-20-[cBtn]-30-[eTF(==\(String(describing: DVUIConstants.textFieldHeight)))]-20-[pTF(==\(String(describing: DVUIConstants.textFieldHeight)))]-20-[cpTF(==\(String(describing: DVUIConstants.textFieldHeight)))]-30-[conBtn(==\(String(describing: DVUIConstants.loginBtnsHeight)))]", views: viewsDict))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[cBtn]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[eTF(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[pTF(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[cpTF(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[conBtn(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[eTF(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[pTF(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[cpTF(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[conBtn(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         emailTF.textField.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         let _ = [emailTF.textField, passTF.textField, confirmPassTF.textField].map({
@@ -93,13 +93,13 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         configureView()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     func cancelSignUp() {
         Model.sharedInstance.logoutCurrUser()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func continueSignUp() {
@@ -109,7 +109,7 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         })
         if email != "" && password != "" &&  confirmPass {
             Model.sharedInstance.loginUser(DVUser(email: email, pass: password))
-            self.presentViewController(AddtionalSignUpViewController(), animated: true, completion: nil)
+            self.present(AddtionalSignUpViewController(), animated: true, completion: nil)
         } else if email == "" {
             emailTF.textField.becomeFirstResponder()
         } else if password == "" {
@@ -119,11 +119,11 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case emailTF.textField:
             let emailText = emailTF.textField.text
-            if let email = emailText where emailText! != "" && isValidEmail(emailText!) {
+            if let email = emailText , emailText! != "" && isValidEmail(emailText!) {
                 self.email = email
                 self.emailTF.errorImg.image = DVUIConstants.greenCheckmark
                 self.passTF.textField.becomeFirstResponder()
@@ -136,7 +136,7 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         case passTF.textField:
             //check conditions
             let passText = passTF.textField.text
-            if let password = passText where passText! != "" && isValidPass(passText!) {
+            if let password = passText , passText! != "" && isValidPass(passText!) {
                 self.password = password
                 self.passTF.errorImg.image = DVUIConstants.greenCheckmark
                 self.confirmPassTF.textField.becomeFirstResponder()
@@ -151,7 +151,7 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
             break
         case confirmPassTF.textField:
             let confirmPassText = confirmPassTF.textField.text
-            if let _ = confirmPassText where password != "" && confirmPassText == password {
+            if let _ = confirmPassText , password != "" && confirmPassText == password {
                 self.confirmPass = true
                 self.confirmPassTF.errorImg.image = DVUIConstants.greenCheckmark
                 textField.resignFirstResponder()
@@ -174,11 +174,11 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case emailTF.textField:
             let emailText = emailTF.textField.text
-            if let email = emailText where emailText! != "" && isValidEmail(emailText!) {
+            if let email = emailText , emailText! != "" && isValidEmail(emailText!) {
                 self.email = email
                 self.emailTF.errorImg.image = DVUIConstants.greenCheckmark
             } else {
@@ -189,7 +189,7 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         case passTF.textField:
             //check conditions
             let passText = passTF.textField.text
-            if let password = passText where passText! != "" && isValidPass(passText!) {
+            if let password = passText , passText! != "" && isValidPass(passText!) {
                 self.password = password
                 self.passTF.errorImg.image = DVUIConstants.greenCheckmark
             } else {
@@ -200,7 +200,7 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         case confirmPassTF.textField:
             //check conditions
             let confirmPassText = confirmPassTF.textField.text
-            if let _ = confirmPassText where password != "" && confirmPassText == password {
+            if let _ = confirmPassText , password != "" && confirmPassText == password {
                 self.confirmPass = true
                 confirmPassTF.errorImg.image = DVUIConstants.greenCheckmark
             } else {
@@ -213,14 +213,14 @@ class EmailSignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func isValidPass(pass: String) -> Bool {
+    func isValidPass(_ pass: String) -> Bool {
         return pass.characters.count >= 6
     }
     
-    func isValidEmail(email: String) -> Bool {
+    func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluateWithObject(email)
+        return emailTest.evaluate(with: email)
     }
 }

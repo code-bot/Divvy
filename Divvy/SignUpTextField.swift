@@ -15,24 +15,24 @@ class SignUpTextField: UIView {
     var errorImg = UIImageView()
     
     func configureFields() {
-        textField.font = UIFont.systemFontOfSize(20)
-        textField.textColor = UIColor.whiteColor()
+        textField.font = UIFont.systemFont(ofSize: 20)
+        textField.textColor = UIColor.white
         textField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         textField.clipsToBounds = true
-        textField.autocapitalizationType = .None
-        textField.autocorrectionType = .No
-        textField.returnKeyType = .Next
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.returnKeyType = .next
         textField.enablesReturnKeyAutomatically = true
     }
     
     func configureImageViews() {
-        errorImg.contentMode = .ScaleAspectFit
+        errorImg.contentMode = .scaleAspectFit
     }
     
     func configureViews() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.layer.borderWidth = 1
-        self.layer.borderColor = DVUIConstants.colors.loginPeach.CGColor
+        self.layer.borderColor = DVUIConstants.colors.loginPeach.cgColor
         self.layer.cornerRadius = 10
         
         configureFields()
@@ -41,7 +41,7 @@ class SignUpTextField: UIView {
         let viewsDict = [
             "tf"    :   textField,
             "img"   :   errorImg
-        ]
+        ] as [String : UIView]
         
         self.prepareViewsForAutoLayout(viewsDict)
         
@@ -54,7 +54,7 @@ class SignUpTextField: UIView {
     
     convenience init(placeholder : String) {
         self.init(frame: CGRect.zero)
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName: UIColor.lightGray])
         configureViews()
     }
     

@@ -22,23 +22,23 @@ class TitleViewController: UIViewController {
     
     func configureImageViews() {
         titleLogoView.image = DVUIConstants.logoImg
-        titleLogoView.contentMode = .ScaleAspectFit
+        titleLogoView.contentMode = .scaleAspectFit
     }
     
     func configureButtons() {
-        self.loginHub.loginBtn.addTarget(self, action: #selector(emailLogIn), forControlEvents: .TouchUpInside)
+        self.loginHub.loginBtn.addTarget(self, action: #selector(emailLogIn), for: .touchUpInside)
         
-        self.loginHub.signUpBtn.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+        self.loginHub.signUpBtn.addTarget(self, action: #selector(signUp), for: .touchUpInside)
         
-        self.loginHub.forgotPassBtn.addTarget(self, action: #selector(passRecovery), forControlEvents: .TouchUpInside)
+        self.loginHub.forgotPassBtn.addTarget(self, action: #selector(passRecovery), for: .touchUpInside)
     }
     
     func configureView() {
         
         let gradient = CAGradientLayer()
         gradient.frame = self.view.bounds
-        gradient.colors = [DVUIConstants.colors.darkLoginGradientDark.CGColor, DVUIConstants.colors.darkLoginGradientLight.CGColor]
-        self.view.layer.insertSublayer(gradient, atIndex: 0)
+        gradient.colors = [DVUIConstants.colors.darkLoginGradientDark.cgColor, DVUIConstants.colors.darkLoginGradientLight.cgColor]
+        self.view.layer.insertSublayer(gradient, at: 0)
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
         
@@ -51,33 +51,33 @@ class TitleViewController: UIViewController {
         
         self.view.prepareViewsForAutoLayout(viewsDict)
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-\(String(DVUIConstants.logoHeightOffset))-[logo(==\(String(DVUIConstants.logoImgViewHeight)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-\(String(describing: DVUIConstants.logoHeightOffset))-[logo(==\(String(describing: DVUIConstants.logoImgViewHeight)))]", views: viewsDict))
         
         let logoWidthOffset = DVUIConstants.screenWidth/2 - (titleLogoView.image?.size.width)!/2
 
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-(\(String(logoWidthOffset)))-[logo]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-(\(String(describing: logoWidthOffset)))-[logo]", views: viewsDict))
         
         self.view.addSubview(loginHub)
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let user = Model.sharedInstance.currUser {
-            FIRAuth.auth()?.signInWithEmail(user.email, password: user.pass, completion: { (user, error) in
+            FIRAuth.auth()?.signIn(withEmail: user.email, password: user.pass, completion: { (user, error) in
                 if let error = error {
                     print(error)
                     
                     let alert = UIAlertView()
                     alert.title = "Log In Failed"
                     alert.message = "An unknown error oDVurred. Please make sure you are connected to the internet."
-                    alert.addButtonWithTitle("OK")
+                    alert.addButton(withTitle: "OK")
                     alert.show()
                 } else {
                     Model.sharedInstance.loginFIRUSer(user!)
                     
-                    self.presentViewController(HomeViewController(), animated: true, completion: nil)
+                    self.present(HomeViewController(), animated: true, completion: nil)
                 }
                 
             })
@@ -93,14 +93,14 @@ class TitleViewController: UIViewController {
         configureView()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     func emailLogIn() {
-        if let email = self.loginHub.emailTF.text where self.loginHub.emailTF.text != "", let password = self.loginHub.passTF.text where self.loginHub.passTF.text != "" {
+        if let email = self.loginHub.emailTF.text , self.loginHub.emailTF.text != "", let password = self.loginHub.passTF.text , self.loginHub.passTF.text != "" {
             
-            FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (firUser, error) in
+            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (firUser, error) in
                 if let error = error {
                     print(error)
                     
@@ -109,14 +109,14 @@ class TitleViewController: UIViewController {
                     let alert = UIAlertView()
                     alert.title = "Log In Failed"
                     alert.message = "Email or password is incorrect"
-                    alert.addButtonWithTitle("OK")
+                    alert.addButton(withTitle: "OK")
                     alert.show()
                 } else {
                     Model.sharedInstance.loginFIRUSer(firUser!)
                     
                     let user = DVUser(email: firUser!.email!)
                     
-                    Model.sharedInstance.dbRef.child("users").child(firUser!.uid).observeEventType(.Value, withBlock: {
+                    Model.sharedInstance.dbRef.child("users").child(firUser!.uid).observe(.value, with: {
                         (snapshot) in
                         let data = JSON(snapshot.value!)
                         
@@ -124,13 +124,13 @@ class TitleViewController: UIViewController {
                         user.lName = data["lastName"].stringValue
                         let photoUrl = data["photo"].stringValue
                         
-                        user.photo = UIImage(data: NSData(base64EncodedString: photoUrl, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!)
+                        user.photo = UIImage(data: Data(base64Encoded: photoUrl, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!)
                         
                         
                         user.vegPref = data["veg"].boolValue
                         
                         
-                        self.presentViewController(HomeViewController(), animated: true, completion: nil)
+                        self.present(HomeViewController(), animated: true, completion: nil)
                     })
                 }
             })
@@ -138,7 +138,7 @@ class TitleViewController: UIViewController {
     }
     
     func signUp() {
-        presentViewController(EmailSignUpViewController(), animated: true, completion: nil)
+        present(EmailSignUpViewController(), animated: true, completion: nil)
     }
     
     func passRecovery() {

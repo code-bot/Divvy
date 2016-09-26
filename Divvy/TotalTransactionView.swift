@@ -18,25 +18,25 @@ class TotalTransactionView: UIView {
     var total = UILabel()
     
     func configureButtons() {
-        completeTrans.setTitle("Finish", forState: .Normal)
+        completeTrans.setTitle("Finish", for: UIControlState())
         completeTrans.titleLabel!.font = UIFont(name: "Helvetica Neue", size: 46)
-        completeTrans.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
-        completeTrans.backgroundColor = UIColor.clearColor()
+        completeTrans.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
+        completeTrans.backgroundColor = UIColor.clear
     }
     
     func configureLabels() {
         youPay.text = "You Pay: $"
-        youPay.textColor = UIColor.whiteColor()
-        youPay.textAlignment = .Center
-        youPay.font.fontWithSize(20.0)
+        youPay.textColor = UIColor.white
+        youPay.textAlignment = .center
+        youPay.font.withSize(20.0)
         youSave.text = "You Save: $"
-        youSave.textColor = UIColor.whiteColor()
-        youSave.textAlignment = .Center
-        youSave.font.fontWithSize(20.0)
+        youSave.textColor = UIColor.white
+        youSave.textAlignment = .center
+        youSave.font.withSize(20.0)
         total.text = "Total: $"
-        total.textColor = UIColor.whiteColor()
-        total.textAlignment = .Center
-        total.font.fontWithSize(20.0)
+        total.textColor = UIColor.white
+        total.textAlignment = .center
+        total.font.withSize(20.0)
     }
     
     func configureView() {
@@ -48,7 +48,7 @@ class TotalTransactionView: UIView {
             "youPay": youPay,
             "youSave": youSave,
             "tot": total
-        ]
+        ] as [String : UIView]
         
         self.prepareViewsForAutoLayout(viewsDict)
         
@@ -60,7 +60,7 @@ class TotalTransactionView: UIView {
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-10-[youSave]", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-10-[tot]", views: viewsDict))
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[fin(==\(String(DVUIConstants.screenWidth * 0.4)))]|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[fin(==\(String(describing: DVUIConstants.screenWidth * 0.4)))]|", views: viewsDict))
     }
     
     override init(frame: CGRect) {

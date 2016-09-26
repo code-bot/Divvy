@@ -17,17 +17,17 @@ class HomeTableViewCell: UITableViewCell {
     
     func configureLabels() {
         youPay.text = "Amount Due: $"
-        youPay.textColor = UIColor.whiteColor()
-        youPay.textAlignment = .Center
-        youPay.font.fontWithSize(24.0)
+        youPay.textColor = UIColor.white
+        youPay.textAlignment = .center
+        youPay.font.withSize(24.0)
         date.text = "Date: "
-        date.textColor = UIColor.whiteColor()
-        date.textAlignment = .Center
-        date.font.fontWithSize(14.0)
+        date.textColor = UIColor.white
+        date.textAlignment = .center
+        date.font.withSize(14.0)
         total.text = "Total: $"
-        total.textColor = UIColor.whiteColor()
-        total.textAlignment = .Center
-        total.font.fontWithSize(14.0)
+        total.textColor = UIColor.white
+        total.textAlignment = .center
+        total.font.withSize(14.0)
     }
     
     func configureView() {
@@ -48,7 +48,7 @@ class HomeTableViewCell: UITableViewCell {
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-10-[date]", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-10-[tot]", views: viewsDict))
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[youPay(==\(String(DVUIConstants.screenWidth * 0.4)))]|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:[youPay(==\(String(describing: DVUIConstants.screenWidth * 0.4)))]|", views: viewsDict))
         
     }
     

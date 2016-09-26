@@ -33,11 +33,11 @@ class Model {
         currUser?.remainingTransactions = trans
     }
     
-    func loginUser(user: DVUser) {
+    func loginUser(_ user: DVUser) {
         currUser = user
     }
     
-    func loginFIRUSer(firUser: FIRUser) {
+    func loginFIRUSer(_ firUser: FIRUser) {
         firCurrUser = firUser
     }
     

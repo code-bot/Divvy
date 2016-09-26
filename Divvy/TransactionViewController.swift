@@ -15,12 +15,12 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
     var navBarTransaction = NavBarTransaction(frame: CGRect.zero)
     
     
-    func backButton(sender: AnyObject!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func backButton(_ sender: AnyObject!) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func editProfileButton(sender: AnyObject!) {
-        self.presentViewController(EditProfileViewController(), animated: true, completion: nil)
+    func editProfileButton(_ sender: AnyObject!) {
+        self.present(EditProfileViewController(), animated: true, completion: nil)
     }
     
     func configureView() {
@@ -32,7 +32,7 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
         let viewsDict = [
             "navbar"    :   navBarTransaction,
             "finalBar"  :   totaltransPageView
-        ]
+        ] as [String : UIView]
         
         self.view.prepareViewsForAutoLayout(viewsDict)
         
@@ -56,20 +56,20 @@ class TransactionViewController: UIViewController, UIImagePickerControllerDelega
         //self.transPageView.youPay.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     func configureButtons() {
-        self.totaltransPageView.completeTrans.addTarget(self, action: #selector(backToHomePage), forControlEvents: .TouchUpInside)
-        self.navBarTransaction.back.addTarget(self, action: #selector(backButton), forControlEvents: .TouchUpInside)
+        self.totaltransPageView.completeTrans.addTarget(self, action: #selector(backToHomePage), for: .touchUpInside)
+        self.navBarTransaction.back.addTarget(self, action: #selector(backButton), for: .touchUpInside)
     }
     
     func backToHomePage() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     

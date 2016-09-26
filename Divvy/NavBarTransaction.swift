@@ -27,14 +27,14 @@ class NavBarTransaction: UIView, UITextViewDelegate {
     
     func configureImageViews() {
         titleLogoView.image = DVUIConstants.logoImg
-        titleLogoView.contentMode = .ScaleAspectFit
+        titleLogoView.contentMode = .scaleAspectFit
     }
     
     func configureButtons() {
-        back.setImage(DVUIConstants.peachBack, forState: .Normal)
-        back.imageView?.contentMode = .ScaleAspectFit
-        back.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
-        back.backgroundColor = UIColor.clearColor()
+        back.setImage(DVUIConstants.peachBack, for: UIControlState())
+        back.imageView?.contentMode = .scaleAspectFit
+        back.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
+        back.backgroundColor = UIColor.clear
     }
     
     func configureViews() {
@@ -42,7 +42,7 @@ class NavBarTransaction: UIView, UITextViewDelegate {
         
     }
     func configureView() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         configureButtons()
         configureImageViews()
@@ -52,7 +52,7 @@ class NavBarTransaction: UIView, UITextViewDelegate {
             "back"      :   back,
             "logo"      :   titleLogoView,
             
-            ]
+            ] as [String : UIView]
         
         self.prepareViewsForAutoLayout(viewsDict)
         
@@ -60,7 +60,7 @@ class NavBarTransaction: UIView, UITextViewDelegate {
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-25-[logo]-25-|", views: viewsDict))
         
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-25-[back(==\(String(DVUIConstants.signOutHeight)))]-15-|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-25-[back(==\(String(describing: DVUIConstants.signOutHeight)))]-15-|", views: viewsDict))
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-15-[back]", views: viewsDict))
     }
     

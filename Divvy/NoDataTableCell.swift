@@ -16,9 +16,9 @@ class NoDataTableCell: UITableViewCell {
         
         var noInfoLabel = UILabel()
         noInfoLabel.text = "You have payed all of your transactions!"
-        noInfoLabel.textColor = UIColor.lightGrayColor()
+        noInfoLabel.textColor = UIColor.lightGray
         
-        self.backgroundColor = UIColor.darkGrayColor()
+        self.backgroundColor = UIColor.darkGray
         
         let viewsDict = [
             "lbl"   : noInfoLabel

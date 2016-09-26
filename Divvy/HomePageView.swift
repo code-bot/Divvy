@@ -19,9 +19,9 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
     var tableView = UITableView()
     
     func configureButtons() {
-        camera.setTitle("Camera", forState: .Normal)
+        camera.setTitle("Camera", for: UIControlState())
         camera.backgroundColor = DVUIConstants.colors.loginPeach
-        camera.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        camera.setTitleColor(UIColor.white, for: UIControlState())
     }
     
     func configureTable() {
@@ -29,12 +29,12 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.bounces = false
         
-        tableView.registerClass(HomeTableViewCell.self, forCellReuseIdentifier: "Home")
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "Home")
     }
     
 
     func configureView() {
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         Model.sharedInstance.addTransactions()
         
@@ -46,7 +46,7 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
             "table" :   tableView,
             "camera":   camera,
             
-            ]
+            ] as [String : UIView]
         
         self.prepareViewsForAutoLayout(viewsDict)
         
@@ -56,21 +56,20 @@ class HomePageView: UIView, UITextViewDelegate, UITableViewDataSource, UITableVi
         self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[table]|", views: viewsDict))
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Model.sharedInstance.items.count
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Home") as! HomeTableViewCell
-        
-        cell.date = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].date
-        cell.youPay = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].userTotal
-        cell.total = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].groupTotal
-        return cell!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Home") as! HomeTableViewCell
+        cell.date.text = Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].date
+        cell.youPay.text = String(describing: Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].userTotal)
+        cell.total.text = String(describing: Model.sharedInstance.currUser?.remainingTransactions[indexPath.row].groupTotal)
+        return cell
     }
     
     override init(frame: CGRect) {

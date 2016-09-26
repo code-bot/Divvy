@@ -41,16 +41,16 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
     }
     
     func configureButtons() {
-        backBtn.setImage(DVUIConstants.peachBack, forState: .Normal)
-        backBtn.imageView?.contentMode = .ScaleAspectFit
-        backBtn.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
-        backBtn.backgroundColor = UIColor.clearColor()
-        backBtn.addTarget(self, action: #selector(backSignUp), forControlEvents: .TouchUpInside)
+        backBtn.setImage(DVUIConstants.peachBack, for: UIControlState())
+        backBtn.imageView?.contentMode = .scaleAspectFit
+        backBtn.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
+        backBtn.backgroundColor = UIColor.clear
+        backBtn.addTarget(self, action: #selector(backSignUp), for: .touchUpInside)
         
-        signUpBtn.setTitle("Sign Up", forState: .Normal)
-        signUpBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        signUpBtn.setTitle("Sign Up", for: UIControlState())
+        signUpBtn.setTitleColor(UIColor.white, for: UIControlState())
         signUpBtn.backgroundColor = DVUIConstants.colors.loginPeach
-        signUpBtn.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+        signUpBtn.addTarget(self, action: #selector(signUp), for: .touchUpInside)
         signUpBtn.layer.cornerRadius = 20
     }
     
@@ -83,27 +83,27 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
             "pSel"      :   photoSel,
             "vChk"      :   vegCheckBox,
             "sUP"       :   signUpBtn
-        ]
+        ] as [String : UIView]
         
         self.view.prepareViewsForAutoLayout(viewsDict)
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-25-[bBtn(==30)]-10-[pSel]-25-[fnTF(==\(String(DVUIConstants.textFieldHeight)))]-20-[lnTF(==\(String(DVUIConstants.textFieldHeight)))]-20-[vChk(==20)]-20-[sUP(==\(String(DVUIConstants.textFieldHeight)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|-25-[bBtn(==30)]-10-[pSel]-25-[fnTF(==\(String(describing: DVUIConstants.textFieldHeight)))]-20-[lnTF(==\(String(describing: DVUIConstants.textFieldHeight)))]-20-[vChk(==20)]-20-[sUP(==\(String(describing: DVUIConstants.textFieldHeight)))]", views: viewsDict))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[bBtn(==40)]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[fnTF(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[lnTF(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset - 10))-[vChk]-\(String(DVUIConstants.textFieldCenterWidthOffset - 10))-|", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.textFieldCenterWidthOffset))-[sUP(==\(String(DVUIConstants.textFieldWidth)))]", views: viewsDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(DVUIConstants.photoSelOffset))-[pSel]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[fnTF(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[lnTF(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset - 10))-[vChk]-\(String(describing: DVUIConstants.textFieldCenterWidthOffset - 10))-|", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.textFieldCenterWidthOffset))-[sUP(==\(String(describing: DVUIConstants.textFieldWidth)))]", views: viewsDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|-\(String(describing: DVUIConstants.photoSelOffset))-[pSel]", views: viewsDict))
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         firstNameTF.textField.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         let _ = [firstNameTF, lastNameTF].map({
@@ -130,17 +130,17 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
             Model.sharedInstance.currUser!.photo = self.photo
             Model.sharedInstance.currUser!.vegPref = self.vegCheckBox.isChecked
             //Do signup stuff in backend
-            FIRAuth.auth()?.createUserWithEmail(Model.sharedInstance.currUser!.email, password: Model.sharedInstance.currUser!.pass, completion: { (user, error) in
+            FIRAuth.auth()?.createUser(withEmail: Model.sharedInstance.currUser!.email, password: Model.sharedInstance.currUser!.pass, completion: { (user, error) in
                 if let error = error {
                     print(error)
                     
                 } else {
                     let jpgData = UIImageJPEGRepresentation(self.photo!, 1.0)
-                    let photoStr = jpgData?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+                    let photoStr = jpgData?.base64EncodedString(options: .lineLength64Characters)
                     
                     Model.sharedInstance.dbRef.child("users").child(user!.uid).setValue(["firstname" : self.firstName, "lastname" : self.lastName, "photo" : photoStr!, "veg" : self.vegCheckBox.isChecked])
                     
-                    self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
+                    self.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
                 }
             })
         } else if firstName == "" {
@@ -151,31 +151,31 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
         
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             photoSel.selectedImg.image = pickedImage
             photo = pickedImage
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     func chooseImage() {
         photoSel.imagePicker.allowsEditing = false
-        photoSel.imagePicker.sourceType = .PhotoLibrary
+        photoSel.imagePicker.sourceType = .photoLibrary
         
-        presentViewController(photoSel.imagePicker, animated: true, completion: nil)
+        present(photoSel.imagePicker, animated: true, completion: nil)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case firstNameTF.textField:
             lastNameTF.textField.becomeFirstResponder()
@@ -187,11 +187,11 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case firstNameTF.textField:
             let firstNameText = firstNameTF.textField.text
-            if let firstName = firstNameText where firstNameText! != "" {
+            if let firstName = firstNameText , firstNameText! != "" {
                 self.firstName = firstName
                 self.firstNameTF.errorImg.image = DVUIConstants.greenCheckmark
             } else {
@@ -201,7 +201,7 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
             break
         case lastNameTF.textField:
             let lastNameText = lastNameTF.textField.text
-            if let lastName = lastNameText where lastNameText! != "" {
+            if let lastName = lastNameText , lastNameText! != "" {
                 self.lastName = lastName
                 self.lastNameTF.errorImg.image = DVUIConstants.greenCheckmark
             } else {
@@ -214,7 +214,7 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
         }
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == lastNameTF.textField {
             if let text = textField.text {
                 let length = text.utf16.count + string.utf16.count - range.length
@@ -225,6 +225,6 @@ class AddtionalSignUpViewController: UIViewController, UITextFieldDelegate, UIIm
     }
     
     func backSignUp() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

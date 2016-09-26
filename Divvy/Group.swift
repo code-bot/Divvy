@@ -17,7 +17,7 @@ class Group {
         groupPref = [Item]()
     }
     
-    func addToGroupPref(item: Item) {
+    func addToGroupPref(_ item: Item) {
         groupPref.append(item)
     }
 }

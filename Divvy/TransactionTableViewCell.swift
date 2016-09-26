@@ -16,13 +16,13 @@ class TransactionTableViewCell: UIView {
     
     func configureLabels() {
         item.text = "ItemName"
-        item.textColor = UIColor.whiteColor()
-        item.textAlignment = .Center
-        item.font.fontWithSize(24.0)
+        item.textColor = UIColor.white
+        item.textAlignment = .center
+        item.font.withSize(24.0)
         price.text = "Price"
-        price.textColor = UIColor.whiteColor()
-        price.textAlignment = .Center
-        price.font.fontWithSize(14.0)
+        price.textColor = UIColor.white
+        price.textAlignment = .center
+        price.font.withSize(14.0)
     }
     
     func configureView() {

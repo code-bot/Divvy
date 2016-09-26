@@ -21,12 +21,12 @@ UINavigationControllerDelegate {
 
     
     func configureLabels() {
-        editDetailsView.emailID.text = String(Model.sharedInstance.currUser?.email)
-        editDetailsView.fName.text = String(Model.sharedInstance.currUser?.fName)
-        editDetailsView.lName.text = String(Model.sharedInstance.currUser?.lName)
+        editDetailsView.emailID.text = String(describing: Model.sharedInstance.currUser?.email)
+        editDetailsView.fName.text = String(describing: Model.sharedInstance.currUser?.fName)
+        editDetailsView.lName.text = String(describing: Model.sharedInstance.currUser?.lName)
     }
     func configureButtons() {
-        self.editDetailsView.submit.addTarget(self, action: #selector(submitButton), forControlEvents: .TouchUpInside)
+        self.editDetailsView.submit.addTarget(self, action: #selector(submitButton), for: .touchUpInside)
     }
 //    func configureButtons() {
 //        self.editDetailsView.userPhoto.addTarget(self, action: #selector(doSomething), forControlEvents: .TouchUpInside)
@@ -46,7 +46,7 @@ UINavigationControllerDelegate {
         }
 
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
 
     }
     
@@ -71,7 +71,7 @@ UINavigationControllerDelegate {
         print("hi")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     

@@ -17,8 +17,8 @@ class PhotoSelector: UIView {
     
     func configureImageView() {
         selectedImg.image = DVUIConstants.noPhoto
-        selectedImg.contentMode = .ScaleToFill
-        selectedImg.layer.borderColor = UIColor.whiteColor().CGColor
+        selectedImg.contentMode = .scaleToFill
+        selectedImg.layer.borderColor = UIColor.white.cgColor
         selectedImg.layer.borderWidth = 2
     }
     
@@ -32,9 +32,9 @@ class PhotoSelector: UIView {
         
         self.prepareViewsForAutoLayout(viewsDict)
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|[img(==\(String(DVUIConstants.photoSize)))]|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("V:|[img(==\(String(describing: DVUIConstants.photoSize)))]|", views: viewsDict))
         
-        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[img(==\(String(DVUIConstants.photoSize)))]|", views: viewsDict))
+        self.addConstraints(NSLayoutConstraint.constraintsWithSimpleFormat("H:|[img(==\(String(describing: DVUIConstants.photoSize)))]|", views: viewsDict))
     }
     
     convenience init() {

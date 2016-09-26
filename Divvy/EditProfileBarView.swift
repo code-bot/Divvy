@@ -18,15 +18,15 @@ class EditProfileBarView: UIView {
     var yourPrefs = UIButton()
     
     func configureButtons() {
-        yourGroup.setTitle("My Group", forState: .Normal)
+        yourGroup.setTitle("My Group", for: UIControlState())
         yourGroup.titleLabel!.font = UIFont(name: "Helvetica Neue", size: 46)
-        yourGroup.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
-        yourGroup.backgroundColor = UIColor.clearColor()
+        yourGroup.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
+        yourGroup.backgroundColor = UIColor.clear
         
-        yourPrefs.setTitle("My Preferences", forState: .Normal)
+        yourPrefs.setTitle("My Preferences", for: UIControlState())
         yourPrefs.titleLabel!.font = UIFont(name: "Helvetica Neue", size: 46)
-        yourPrefs.setTitleColor(DVUIConstants.colors.loginPeach, forState: .Normal)
-        yourPrefs.backgroundColor = UIColor.clearColor()
+        yourPrefs.setTitleColor(DVUIConstants.colors.loginPeach, for: UIControlState())
+        yourPrefs.backgroundColor = UIColor.clear
     }
     func configureView() {
         configureButtons()
